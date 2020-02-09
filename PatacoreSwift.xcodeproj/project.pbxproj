@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,11 @@
 		0413733323ED2E48007CED13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0413733123ED2E48007CED13 /* LaunchScreen.storyboard */; };
 		0413733E23ED2E48007CED13 /* PatacoreSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413733D23ED2E48007CED13 /* PatacoreSwiftTests.swift */; };
 		0413734923ED2E49007CED13 /* PatacoreSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413734823ED2E49007CED13 /* PatacoreSwiftUITests.swift */; };
+		048BE20F23F08AE10010BB37 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BE20E23F08AE10010BB37 /* TabBarViewController.swift */; };
 		0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493A56723EF6DB800C82E62 /* SingInViewController.swift */; };
+		229A2352A4E4FFE640FCEEDA /* Pods_PatacoreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */; };
+		6E59423F53718337F27E0C13 /* Pods_PatacoreSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */; };
+		87210977E9856595623DA250 /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +54,17 @@
 		0413734423ED2E49007CED13 /* PatacoreSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatacoreSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0413734823ED2E49007CED13 /* PatacoreSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatacoreSwiftUITests.swift; sourceTree = "<group>"; };
 		0413734A23ED2E49007CED13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048BE20E23F08AE10010BB37 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0493A56723EF6DB800C82E62 /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
+		280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift_PatacoreSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		347BB5506FF6CBD39F301736 /* Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AA2C99561E74F940A1A4CCB /* Pods-PatacoreSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-PatacoreSwiftTests/Pods-PatacoreSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72A5D5E5CD1F913B6A062AD5 /* Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC14F7E59C2E6069BB1FEBD9 /* Pods-PatacoreSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift.debug.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		AC5768D82BF49921D1B1389A /* Pods-PatacoreSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-PatacoreSwiftTests/Pods-PatacoreSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		B29D3FD7EDF4ED59FE33C4D6 /* Pods-PatacoreSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift.release.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift.release.xcconfig"; sourceTree = "<group>"; };
+		CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229A2352A4E4FFE640FCEEDA /* Pods_PatacoreSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E59423F53718337F27E0C13 /* Pods_PatacoreSwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87210977E9856595623DA250 /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,8 @@
 				0413733C23ED2E48007CED13 /* PatacoreSwiftTests */,
 				0413734723ED2E49007CED13 /* PatacoreSwiftUITests */,
 				0413732423ED2E46007CED13 /* Products */,
+				1302B53BD3A3ABC248455F5A /* Pods */,
+				CD2EDC2CAC41EC178778DB7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				0493A56723EF6DB800C82E62 /* SingInViewController.swift */,
+				048BE20E23F08AE10010BB37 /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,6 +183,29 @@
 			path = Tables;
 			sourceTree = "<group>";
 		};
+		1302B53BD3A3ABC248455F5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC14F7E59C2E6069BB1FEBD9 /* Pods-PatacoreSwift.debug.xcconfig */,
+				B29D3FD7EDF4ED59FE33C4D6 /* Pods-PatacoreSwift.release.xcconfig */,
+				72A5D5E5CD1F913B6A062AD5 /* Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig */,
+				347BB5506FF6CBD39F301736 /* Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig */,
+				6AA2C99561E74F940A1A4CCB /* Pods-PatacoreSwiftTests.debug.xcconfig */,
+				AC5768D82BF49921D1B1389A /* Pods-PatacoreSwiftTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD2EDC2CAC41EC178778DB7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */,
+				280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */,
+				CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0413734D23ED2E49007CED13 /* Build configuration list for PBXNativeTarget "PatacoreSwift" */;
 			buildPhases = (
+				0B264BB0E87BEF331D181260 /* [CP] Check Pods Manifest.lock */,
 				0413731F23ED2E46007CED13 /* Sources */,
 				0413732023ED2E46007CED13 /* Frameworks */,
 				0413732123ED2E46007CED13 /* Resources */,
+				5BB3167352A03E3E62233655 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +232,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0413735023ED2E49007CED13 /* Build configuration list for PBXNativeTarget "PatacoreSwiftTests" */;
 			buildPhases = (
+				315279C58E28C8CF78BFDDFD /* [CP] Check Pods Manifest.lock */,
 				0413733523ED2E48007CED13 /* Sources */,
 				0413733623ED2E48007CED13 /* Frameworks */,
 				0413733723ED2E48007CED13 /* Resources */,
@@ -205,9 +251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0413735323ED2E49007CED13 /* Build configuration list for PBXNativeTarget "PatacoreSwiftUITests" */;
 			buildPhases = (
+				93F433859E97B1124F4D81FC /* [CP] Check Pods Manifest.lock */,
 				0413734023ED2E49007CED13 /* Sources */,
 				0413734123ED2E49007CED13 /* Frameworks */,
 				0413734223ED2E49007CED13 /* Resources */,
+				6866879746C2C6A657EEF77E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,6 +337,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B264BB0E87BEF331D181260 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatacoreSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		315279C58E28C8CF78BFDDFD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatacoreSwiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BB3167352A03E3E62233655 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6866879746C2C6A657EEF77E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93F433859E97B1124F4D81FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PatacoreSwift-PatacoreSwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0413731F23ED2E46007CED13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -297,6 +448,7 @@
 				0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */,
 				0413732B23ED2E46007CED13 /* ViewController.swift in Sources */,
 				0413732723ED2E46007CED13 /* AppDelegate.swift in Sources */,
+				048BE20F23F08AE10010BB37 /* TabBarViewController.swift in Sources */,
 				0413732923ED2E46007CED13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +620,7 @@
 		};
 		0413734E23ED2E49007CED13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC14F7E59C2E6069BB1FEBD9 /* Pods-PatacoreSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -485,6 +638,7 @@
 		};
 		0413734F23ED2E49007CED13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B29D3FD7EDF4ED59FE33C4D6 /* Pods-PatacoreSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -502,6 +656,7 @@
 		};
 		0413735123ED2E49007CED13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AA2C99561E74F940A1A4CCB /* Pods-PatacoreSwiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -523,6 +678,7 @@
 		};
 		0413735223ED2E49007CED13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC5768D82BF49921D1B1389A /* Pods-PatacoreSwiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +700,7 @@
 		};
 		0413735423ED2E49007CED13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72A5D5E5CD1F913B6A062AD5 /* Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -563,6 +720,7 @@
 		};
 		0413735523ED2E49007CED13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 347BB5506FF6CBD39F301736 /* Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

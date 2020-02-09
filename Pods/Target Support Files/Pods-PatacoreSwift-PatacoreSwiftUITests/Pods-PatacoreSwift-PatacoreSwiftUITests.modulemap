@@ -1,0 +1,6 @@
+framework module Pods_PatacoreSwift_PatacoreSwiftUITests {
+  umbrella header "Pods-PatacoreSwift-PatacoreSwiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
