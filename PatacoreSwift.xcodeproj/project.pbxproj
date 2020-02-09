@@ -15,6 +15,7 @@
 		0413733323ED2E48007CED13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0413733123ED2E48007CED13 /* LaunchScreen.storyboard */; };
 		0413733E23ED2E48007CED13 /* PatacoreSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413733D23ED2E48007CED13 /* PatacoreSwiftTests.swift */; };
 		0413734923ED2E49007CED13 /* PatacoreSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413734823ED2E49007CED13 /* PatacoreSwiftUITests.swift */; };
+		0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493A56723EF6DB800C82E62 /* SingInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0413734423ED2E49007CED13 /* PatacoreSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatacoreSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0413734823ED2E49007CED13 /* PatacoreSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatacoreSwiftUITests.swift; sourceTree = "<group>"; };
 		0413734A23ED2E49007CED13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0493A56723EF6DB800C82E62 /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,9 @@
 		0413732523ED2E46007CED13 /* PatacoreSwift */ = {
 			isa = PBXGroup;
 			children = (
+				04A1548823EE735400749B37 /* Views */,
+				04A1548723EE733700749B37 /* Controllers */,
+				0413735623ED3710007CED13 /* Models */,
 				0413732623ED2E46007CED13 /* AppDelegate.swift */,
 				0413732823ED2E46007CED13 /* SceneDelegate.swift */,
 				0413732A23ED2E46007CED13 /* ViewController.swift */,
@@ -126,6 +131,36 @@
 				0413734A23ED2E49007CED13 /* Info.plist */,
 			);
 			path = PatacoreSwiftUITests;
+			sourceTree = "<group>";
+		};
+		0413735623ED3710007CED13 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		04A1548723EE733700749B37 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0493A56723EF6DB800C82E62 /* SingInViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04A1548823EE735400749B37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04A1548923EE736400749B37 /* Tables */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		04A1548923EE736400749B37 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */,
 				0413732B23ED2E46007CED13 /* ViewController.swift in Sources */,
 				0413732723ED2E46007CED13 /* AppDelegate.swift in Sources */,
 				0413732923ED2E46007CED13 /* SceneDelegate.swift in Sources */,
