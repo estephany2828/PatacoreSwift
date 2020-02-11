@@ -10,6 +10,8 @@ import UIKit
 
 class ProductViewController: UIViewController {
     var delegate: ProductViewControllerDelegate?
+    
+    var product: Product?
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
@@ -20,7 +22,13 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let product = product {
+            nameTextField.text = product.name
+            priceTextField.text = product.price
+            descriptionTextField.text = product.description
+            
+            
+        }
     }
     
 
@@ -38,7 +46,13 @@ class ProductViewController: UIViewController {
         
     }
     func dismissMe(){
-        dismiss(animated: true, completion: nil)
+        if presentingViewController != nil {
+            dismiss(animated: true, completion: nil)
+            
+        }else{
+            navigationController!.popViewController(animated: true)
+        }
+        
     }
     
 }

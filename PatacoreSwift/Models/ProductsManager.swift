@@ -12,11 +12,17 @@ import UIKit
 class ProductsManger{
     
     private lazy var products:[Product] = self.loadProducts()
+    
+    
     var productCount: Int{
         return products.count
     }
     func getProduct(at index: Int)->Product{
         return products[index]
+    }
+    func updateProduct(at index: Int, with product : Product ){
+        products[index] = product
+                
     }
     private func loadProducts()->[Product]{
         return sampleProducts()

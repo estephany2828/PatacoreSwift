@@ -21,6 +21,7 @@
 		04E799AD23F2198300EFF3DE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799AC23F2198300EFF3DE /* Product.swift */; };
 		04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799AE23F22F7E00EFF3DE /* ProductsManager.swift */; };
 		04E799B123F262A600EFF3DE /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799B023F262A600EFF3DE /* ProductViewController.swift */; };
+		04E799B323F28A0E00EFF3DE /* DetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799B223F28A0E00EFF3DE /* DetailsTableViewController.swift */; };
 		229A2352A4E4FFE640FCEEDA /* Pods_PatacoreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */; };
 		6E59423F53718337F27E0C13 /* Pods_PatacoreSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */; };
 		87210977E9856595623DA250 /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */; };
@@ -64,6 +65,7 @@
 		04E799AC23F2198300EFF3DE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04E799AE23F22F7E00EFF3DE /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
 		04E799B023F262A600EFF3DE /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		04E799B223F28A0E00EFF3DE /* DetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewController.swift; sourceTree = "<group>"; };
 		280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift_PatacoreSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BB5506FF6CBD39F301736 /* Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 				048BE20E23F08AE10010BB37 /* TabBarViewController.swift */,
 				04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */,
 				04E799B023F262A600EFF3DE /* ProductViewController.swift */,
+				04E799B223F28A0E00EFF3DE /* DetailsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				0413732723ED2E46007CED13 /* AppDelegate.swift in Sources */,
 				048BE20F23F08AE10010BB37 /* TabBarViewController.swift in Sources */,
 				0413732923ED2E46007CED13 /* SceneDelegate.swift in Sources */,
+				04E799B323F28A0E00EFF3DE /* DetailsTableViewController.swift in Sources */,
 				04E799B123F262A600EFF3DE /* ProductViewController.swift in Sources */,
 				04E799AD23F2198300EFF3DE /* Product.swift in Sources */,
 				04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */,

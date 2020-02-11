@@ -11,7 +11,7 @@ import UIKit
 class ProductsTableViewController: UITableViewController {
     var productsManager: ProductsManger=ProductsManger()
     
-    @IBOutlet weak var nameLabel: UILabel!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,12 @@ class ProductsTableViewController: UITableViewController {
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navController = segue.destination as? UINavigationController{
+        if let selectedIndexPath = tableView.indexPathForSelectedRow,
+        let productViewController = segue.destination
+            as? ProductViewController{
+            productViewController.product = productsManager.getProduct(at: selectedIndexPath.row)
+            productViewController.delegate = self
+        } else if let navController = segue.destination as? UINavigationController{
             if let productViewController = navController.topViewController as? ProductViewController{
                 productViewController.delegate = self
             }

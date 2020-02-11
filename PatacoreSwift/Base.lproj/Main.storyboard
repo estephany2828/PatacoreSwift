@@ -143,6 +143,7 @@
                         <viewLayoutGuide key="safeArea" id="zRN-mS-9jP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="CA8-Ce-6Qu"/>
+                    <navigationItem key="navigationItem" id="H5a-n3-Sod"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mz-fH-6zu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,6 +181,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xi0-cB-LWG" kind="show" trigger="accessoryAction" id="4BK-Gu-gcJ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -225,6 +229,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YKj-vb-oZo" kind="show" id="iNl-tt-dop"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -347,7 +354,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9j1-x8-ZHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5560.8695652173919" y="-855.13392857142856"/>
+            <point key="canvasLocation" x="5503" y="-1233"/>
         </scene>
         <!--Item-->
         <scene sceneID="RJ2-UT-fmm">
@@ -373,4 +380,7 @@
         <image name="LogoPatacoreInvY" width="240" height="240"/>
         <image name="panadero" width="170.5" height="170.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Z7R-qI-INf"/>
+    </inferredMetricsTieBreakers>
 </document>
