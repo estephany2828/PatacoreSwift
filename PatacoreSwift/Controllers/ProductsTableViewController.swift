@@ -47,8 +47,13 @@ class ProductsTableViewController: UITableViewController {
         return cell
     }
     
-
-   
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        if editingStyle == .delete {
+            
+            productsManager.removeProduct(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,7 +75,14 @@ class ProductsTableViewController: UITableViewController {
 
 extension ProductsTableViewController:ProductViewControllerDelegate{
     func saveProduct(_ product: Product) {
-        productsManager.addProduct(product)
+        
+        if let selectIndexPath = tableView.indexPathForSelectedRow{
+            productsManager.updateProduct(at: selectIndexPath.row, with: product)
+        }else {
+            productsManager.addProduct(product)
+            
+        }
+     
         tableView.reloadData()
     }
 }
