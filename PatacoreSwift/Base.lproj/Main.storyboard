@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="glA-TJ-xsa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ToM-lZ-gCj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Mesas-->
         <scene sceneID="RbO-Lv-157">
             <objects>
                 <collectionViewController id="zIq-Tg-v8v" customClass="TableCollectionViewController" customModule="PatacoreSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,14 @@
                             <outlet property="delegate" destination="zIq-Tg-v8v" id="hze-P6-Zyc"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="l9o-hB-n7F"/>
+                    <tabBarItem key="tabBarItem" title="Mesas" id="l9o-hB-n7F">
+                        <color key="badgeColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl4-OR-2tf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,13 +240,18 @@
             <objects>
                 <tabBarController storyboardIdentifier="myTabBar" id="XNC-hH-SZc" customClass="TabBarViewController" customModule="PatacoreSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Qlw-wa-ycD"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HcB-v5-vqV">
+                    <tabBar key="tabBar" contentMode="scaleToFill" semanticContentAttribute="playback" insetsLayoutMarginsFromSafeArea="NO" id="HcB-v5-vqV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" name="PrimaryLight"/>
+                        <color key="backgroundColor" name="PrimaryLight"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="Primary"/>
-                        <color key="selectedImageTintColor" name="PrimaryLight"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="uei-7N-aH1" kind="relationship" relationship="viewControllers" id="Ksa-er-Hji"/>
@@ -509,15 +521,27 @@
             </objects>
             <point key="canvasLocation" x="6471.0144927536239" y="-855.13392857142856"/>
         </scene>
-        <!--Item-->
+        <!--Productos-->
         <scene sceneID="K3k-fp-a1L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uei-7N-aH1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="M1x-oq-SKI"/>
+                    <tabBarItem key="tabBarItem" title="Productos" id="M1x-oq-SKI">
+                        <color key="badgeColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GQg-X9-DkI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="Secondary"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jdF-bG-kKx">
@@ -550,15 +574,27 @@
             </objects>
             <point key="canvasLocation" x="5503" y="-1233"/>
         </scene>
-        <!--Item-->
+        <!--Pedidos-->
         <scene sceneID="RJ2-UT-fmm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RcT-UY-QGl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Rxt-Is-G3W"/>
+                    <tabBarItem key="tabBarItem" title="Pedidos" id="Rxt-Is-G3W">
+                        <color key="badgeColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ne4-41-Ctg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="Secondary"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
