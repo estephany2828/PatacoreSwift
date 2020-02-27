@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Mesas-->
         <scene sceneID="RbO-Lv-157">
             <objects>
                 <collectionViewController id="zIq-Tg-v8v" customClass="TableCollectionViewController" customModule="PatacoreSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,14 +31,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="165" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-B0-gLl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-B0-gLl">
                                             <rect key="frame" x="61" y="56" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cMR-B0-gLl" firstAttribute="top" secondItem="xro-1U-yx5" secondAttribute="top" constant="56" id="IsS-oC-sue"/>
+                                        <constraint firstItem="cMR-B0-gLl" firstAttribute="leading" secondItem="xro-1U-yx5" secondAttribute="leading" constant="61" id="LkL-c4-ir3"/>
+                                        <constraint firstAttribute="trailing" secondItem="cMR-B0-gLl" secondAttribute="trailing" constant="62" id="zJz-86-vUV"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="165" height="133"/>
                                 <connections>
@@ -51,7 +55,14 @@
                             <outlet property="delegate" destination="zIq-Tg-v8v" id="hze-P6-Zyc"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="l9o-hB-n7F"/>
+                    <tabBarItem key="tabBarItem" title="Mesas" id="l9o-hB-n7F">
+                        <color key="badgeColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl4-OR-2tf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,6 +149,7 @@
                                         <constraint firstAttribute="trailing" secondItem="4aq-GU-rQE" secondAttribute="trailing" constant="269" id="npi-W4-Nq2"/>
                                         <constraint firstItem="Cjk-CP-1fk" firstAttribute="top" secondItem="1o1-gr-KMP" secondAttribute="bottom" constant="9" id="oDH-Ra-ffk"/>
                                         <constraint firstItem="qUG-Bg-cMN" firstAttribute="top" secondItem="1o1-gr-KMP" secondAttribute="bottom" constant="8" id="oEb-XU-uqn"/>
+                                        <constraint firstItem="FrO-Yd-dCd" firstAttribute="leading" secondItem="1o1-gr-KMP" secondAttribute="trailing" constant="17" id="qsJ-cq-c2U"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="qUG-Bg-cMN" secondAttribute="bottom" constant="2" id="t90-EM-GLW"/>
                                         <constraint firstItem="1o1-gr-KMP" firstAttribute="leading" secondItem="ZFr-h0-nbI" secondAttribute="leadingMargin" id="u5C-OF-nAU"/>
                                         <constraint firstItem="4aq-GU-rQE" firstAttribute="leading" secondItem="qUG-Bg-cMN" secondAttribute="trailing" constant="16" id="wZ6-zS-IZC"/>
@@ -228,11 +240,18 @@
             <objects>
                 <tabBarController storyboardIdentifier="myTabBar" id="XNC-hH-SZc" customClass="TabBarViewController" customModule="PatacoreSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Qlw-wa-ycD"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HcB-v5-vqV">
+                    <tabBar key="tabBar" contentMode="scaleToFill" semanticContentAttribute="playback" insetsLayoutMarginsFromSafeArea="NO" id="HcB-v5-vqV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="PrimaryLight"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="Primary"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="uei-7N-aH1" kind="relationship" relationship="viewControllers" id="Ksa-er-Hji"/>
@@ -329,7 +348,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="c0W-Rk-AhB" detailTextLabel="RGS-LX-TTu" style="IBUITableViewCellStyleSubtitle" id="5kM-cm-xci">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PedCell" textLabel="c0W-Rk-AhB" detailTextLabel="RGS-LX-TTu" style="IBUITableViewCellStyleSubtitle" id="5kM-cm-xci">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5kM-cm-xci" id="j12-L0-o6b">
@@ -502,15 +521,27 @@
             </objects>
             <point key="canvasLocation" x="6471.0144927536239" y="-855.13392857142856"/>
         </scene>
-        <!--Item-->
+        <!--Productos-->
         <scene sceneID="K3k-fp-a1L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uei-7N-aH1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="M1x-oq-SKI"/>
+                    <tabBarItem key="tabBarItem" title="Productos" id="M1x-oq-SKI">
+                        <color key="badgeColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GQg-X9-DkI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="Secondary"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jdF-bG-kKx">
@@ -543,15 +574,27 @@
             </objects>
             <point key="canvasLocation" x="5503" y="-1233"/>
         </scene>
-        <!--Item-->
+        <!--Pedidos-->
         <scene sceneID="RJ2-UT-fmm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RcT-UY-QGl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Rxt-Is-G3W"/>
+                    <tabBarItem key="tabBarItem" title="Pedidos" id="Rxt-Is-G3W">
+                        <color key="badgeColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="PrimaryLight"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ne4-41-Ctg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="Secondary"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
