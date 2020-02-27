@@ -15,6 +15,7 @@ struct Product {
     var name:String
     var price:String
     var description:String
+    var imag:String
      
     var img:UIImage{
         get {
@@ -27,11 +28,12 @@ struct Product {
     private var image : UIImage? = nil
     
 
-init(id:Int,name:String,price:String,description:String,img:UIImage?=nil){
-    self.id = id
+    init(id:Int?=nil, name:String,price:String,description:String,imag:String,img:UIImage? = nil){
+        self.id=id ?? -1
     self.name = name
     self.price = price
     self.description = description
+    self.imag = imag
     self.image = img
     
 }
