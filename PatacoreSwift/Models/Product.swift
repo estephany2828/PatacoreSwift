@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Product {
+class Product {
     static let defaultImg = UIImage(named: "panadero.jpg")!
     var id:Int
     var name:String
