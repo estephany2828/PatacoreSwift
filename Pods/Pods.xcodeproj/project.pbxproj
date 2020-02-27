@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,7 +58,7 @@
 		22A0EA275618EF8AF1B745AF3E33CC0E /* Pods-PatacoreSwiftTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatacoreSwiftTests-Info.plist"; sourceTree = "<group>"; };
 		23074611533A85FC6C1FC1727EBE3578 /* Pods-PatacoreSwift-PatacoreSwiftUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PatacoreSwift-PatacoreSwiftUITests-frameworks.sh"; sourceTree = "<group>"; };
 		23AB8403F4E07FFED63220693E522B8E /* Pods-PatacoreSwift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatacoreSwift-acknowledgements.plist"; sourceTree = "<group>"; };
-		2C28AFEAEB642BCC08098BAD46E1D181 /* Pods_PatacoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PatacoreSwift.framework; path = "Pods-PatacoreSwift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C28AFEAEB642BCC08098BAD46E1D181 /* Pods_PatacoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC554D9839E711BA0024DEB81FCA030 /* Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = RevealingSplashView/Animations.swift; sourceTree = "<group>"; };
 		2F022E94E555F07E3BB71DF2A4051F66 /* RevealingSplashView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RevealingSplashView-Info.plist"; sourceTree = "<group>"; };
 		2F1F033D72049A122A7CBED00EE3498C /* Pods-PatacoreSwiftTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatacoreSwiftTests.modulemap"; sourceTree = "<group>"; };
@@ -73,21 +73,21 @@
 		64FBBFC09494DAAAF6763F7C289EAF63 /* Pods-PatacoreSwiftTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PatacoreSwiftTests-umbrella.h"; sourceTree = "<group>"; };
 		6BF9A72B5398339FAB935775EE44481E /* Pods-PatacoreSwift-PatacoreSwiftUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatacoreSwift-PatacoreSwiftUITests.modulemap"; sourceTree = "<group>"; };
 		6F111FB1EEDF579A54FD5D59EBFAE90A /* Pods-PatacoreSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatacoreSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
-		756A140C09A1CED3FF3B9C18C4BC50EA /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PatacoreSwift_PatacoreSwiftUITests.framework; path = "Pods-PatacoreSwift-PatacoreSwiftUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		756A140C09A1CED3FF3B9C18C4BC50EA /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift_PatacoreSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		763EFAB17693BC64B36DE03B1351D20E /* Pods-PatacoreSwift-PatacoreSwiftUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatacoreSwift-PatacoreSwiftUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		77586C6F3CBAD9FED5911CD5BD122E70 /* Pods_PatacoreSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PatacoreSwiftTests.framework; path = "Pods-PatacoreSwiftTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77586C6F3CBAD9FED5911CD5BD122E70 /* Pods_PatacoreSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AEABAD506AA10C0315AD7A3B48329D /* Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatacoreSwift-PatacoreSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D2930AF0BB65E1210D54F66E58D2949 /* RevealingSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RevealingSplashView-dummy.m"; sourceTree = "<group>"; };
 		950818CCFB9B519F47554D0F643F01B3 /* Pods-PatacoreSwiftTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatacoreSwiftTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		97EAEB060E710A8FB9481493592D5F9F /* Pods-PatacoreSwiftTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PatacoreSwiftTests-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A260D8C9EC479CDEEF96A91109A9DC82 /* RevealingSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-prefix.pch"; sourceTree = "<group>"; };
 		A4726D16943829BCF25BF85B388758F2 /* Pods-PatacoreSwiftTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatacoreSwiftTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		AC31883AED6C3DC6BBAD96B087DF143C /* Pods-PatacoreSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatacoreSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		B6EC828CD7A6F6B1BCF8CBF30419EBDD /* Pods-PatacoreSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PatacoreSwift.modulemap"; sourceTree = "<group>"; };
 		B932958B2DB28ED7AFDEFEF1E003234C /* RevealingSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RevealingSplashView.xcconfig; sourceTree = "<group>"; };
 		BC43620F6DE33C841CED36687B9869D1 /* Pods-PatacoreSwift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PatacoreSwift-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BD56534C888FE385363934C9ABE6E7B4 /* RevealingSplashView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RevealingSplashView.framework; path = RevealingSplashView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD56534C888FE385363934C9ABE6E7B4 /* RevealingSplashView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RevealingSplashView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5399A3C872144A04877421B39FD726E /* RevealingSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RevealingSplashView.h; path = RevealingSplashView/RevealingSplashView.h; sourceTree = "<group>"; };
 		D8DCCB1C169DFE4641EAD3B192280834 /* Pods-PatacoreSwift-PatacoreSwiftUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PatacoreSwift-PatacoreSwiftUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DD6CFDA368E3DEA8432F94C88A6598ED /* Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -262,7 +262,6 @@
 				012B54295830A8EC3321EF9E23D8A2D7 /* SplashAnimationType.swift */,
 				267DC3B4EB3ADCFFA0CA2C7D1FAB6EF7 /* Support Files */,
 			);
-			name = RevealingSplashView;
 			path = RevealingSplashView;
 			sourceTree = "<group>";
 		};
@@ -388,9 +387,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					A16BB753FC705C22DAFCD8B7C1071A09 = {
+						LastSwiftMigration = 1130;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -530,7 +534,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -566,7 +570,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
