@@ -38,3 +38,8 @@ class Product {
     
 }
 }
+
+class Order:Product {
+    
+    
+}
