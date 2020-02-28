@@ -41,9 +41,9 @@ class ProductsManger{
     //algunos productos de prueba utilizando array
     private func sampleProducts()->[Product]{
         return [
-            Product(id:1, name: "pollito", price: "5000", description: "pollito en salsa de champinones"),
-            Product(id:2, name: "pollito2", price: "6000", description: "pollito2 en salsa de champinones"),
-              Product(id:3, name: "pollito3", price: "6000", description: "pollito2 en salsa de champinones"),         ]
+            Product(id:1,name: "pollito", price: "5000", description: "pollito en salsa de champinones",imag:"jjj"),
+            Product(id:2,name: "pollito2", price: "6000", description: "pollito2 en salsa de champinones",imag:"jjj"),
+            Product(id:3,name: "pollito3", price: "6000", description: "pollito2 en salsa de champinones",imag:"jjj")         ]
         
     }
     
