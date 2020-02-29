@@ -41,9 +41,15 @@ class ProductsManger{
     //algunos productos de prueba utilizando array
     private func sampleProducts()->[Product]{
         return [
-            Product(id:1,name: "pollito", price: "5000", description: "pollito en salsa de champinones",imag:"jjj"),
-            Product(id:2,name: "pollito2", price: "6000", description: "pollito2 en salsa de champinones",imag:"jjj"),
-            Product(id:3,name: "pollito3", price: "6000", description: "pollito2 en salsa de champinones",imag:"jjj")         ]
+            Product(id:1,name: "Filet Mignon", price: 5000, description: "350gr de carne de res en salsa de champiñones, porción de arroz y ensalada",imag:"jjj"),
+            Product(id:2,name: "pollito2", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj"),
+            Product(id:3,name: "pollito3", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj"),
+        Product(id:4,name: "Cazuela de pescado", price: 16000, description: "Porción de pescado, aguacate, arroz, ensalada, patacones y limonada natural",imag:"jjj"),
+        Product(id:5,name: "pollito4", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj"),
+        Product(id:5,name: "pollito5", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj"),
+        Product(id:5,name: "pollito6", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj"),
+        Product(id:5,name: "pollito7", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj"),
+        Product(id:5,name: "pollito8", price: 6000, description: "pollito2 en salsa de champinones",imag:"jjj")]
         
     }
     

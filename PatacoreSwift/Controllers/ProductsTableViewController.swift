@@ -8,13 +8,26 @@
 
 import UIKit
 
+class CustomCell: UITableViewCell{
+
+    @IBOutlet var lblName: UILabel!
+    @IBOutlet var imgProduct: UIImageView!
+    @IBOutlet var lblDescription: UILabel!
+    @IBOutlet var lblPrice: UILabel!
+    
+}
+
 class ProductsTableViewController: UITableViewController {
     var productsManager: ProductsManger=ProductsManger()
     
    
+    @IBOutlet var TableProd: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TableProd.dataSource = self
+        TableProd.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,13 +50,17 @@ class ProductsTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
+        let cell:CustomCell = self.tableView.dequeueReusableCell(withIdentifier: "productCell") as! CustomCell
         let product = productsManager.getProduct(at: indexPath.row)
         
-        cell.textLabel?.text = product.name
+        cell.lblName?.text = product.name
+        cell.lblDescription?.text = product.description
+        cell.lblPrice?.text = "$" + String(product.price)
+        cell.imgProduct?.image = product.img
+        //cell.textLabel?.text = product.name
         //cell.priceLabel?.text = product.price
-        cell.detailTextLabel?.text = product.description
-        cell.imageView?.image = product.img
+        //cell.detailTextLabel?.text = product.description
+        //cell.imageView?.image = product.img
         return cell
     }
     
