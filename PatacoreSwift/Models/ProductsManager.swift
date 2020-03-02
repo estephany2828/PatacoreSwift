@@ -11,9 +11,13 @@ import UIKit
 
 class ProductsManger{
     
-    private lazy var products:[Product] = self.loadProducts()
+    //private lazy var products:[Product] = self.loadProducts()
+    private lazy var products:[Product] = db.readProducts()
+    //llamamos la clase DBHelper donde esta la base de datos
+    var db: DBHelper=DBHelper()
+    //crear array products
     
-    
+    //var products:[Product] = []
     
     //cuenta cuantos productos hay
     var productCount: Int{
@@ -31,6 +35,7 @@ class ProductsManger{
     //despleja los productos que estan en un array o bd
     private func loadProducts()->[Product]{
         return sampleProducts()
+        
     }
     //agrega productos y loscoloca al final
     func addProduct(_ product: Product){
@@ -40,6 +45,16 @@ class ProductsManger{
     func removeProduct(at index : Int){
         products.remove(at: index)
     }
+    
+    //agregamos productos a la base de datos
+    func SQLInsertProduct(){
+        db.insertProduct(product:Product(name: "Filet Mignon", price: 5000, description: "350gr de carne de res en salsa de champiñones, porción de arroz y ensalada",imag:"jjj"))        
+        products = db.readProducts()
+        
+    }
+    
+    
+
     //algunos productos de prueba utilizando array
     private func sampleProducts()->[Product]{
         return [

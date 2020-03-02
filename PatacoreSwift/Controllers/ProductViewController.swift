@@ -20,6 +20,7 @@ class ProductViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         if let product = product {
