@@ -469,14 +469,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-Zx-Av3">
-                                <rect key="frame" x="172" y="336" width="70" height="36"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Agregar">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -484,10 +476,7 @@
                             <constraint firstItem="qK7-Yb-erW" firstAttribute="top" secondItem="LTd-9g-A4W" secondAttribute="bottom" constant="16" id="BQr-W8-Oha"/>
                             <constraint firstItem="Kpo-Zq-mZh" firstAttribute="leading" secondItem="uXE-o6-Ieh" secondAttribute="leading" constant="64" id="CLc-ct-gcO"/>
                             <constraint firstItem="wf3-mM-860" firstAttribute="top" secondItem="Kpo-Zq-mZh" secondAttribute="bottom" constant="16" id="Gyr-ec-jUg"/>
-                            <constraint firstItem="dcM-Zx-Av3" firstAttribute="leading" secondItem="uXE-o6-Ieh" secondAttribute="leading" constant="172" id="IGM-Hy-JOe"/>
-                            <constraint firstItem="dcM-Zx-Av3" firstAttribute="top" secondItem="qK7-Yb-erW" secondAttribute="bottom" constant="32" id="Ixh-sy-tDh"/>
                             <constraint firstItem="qK7-Yb-erW" firstAttribute="leading" secondItem="uXE-o6-Ieh" secondAttribute="leading" constant="64" id="RfB-Wv-7hP"/>
-                            <constraint firstItem="uXE-o6-Ieh" firstAttribute="trailing" secondItem="dcM-Zx-Av3" secondAttribute="trailing" constant="172" id="XKz-Jf-DTG"/>
                             <constraint firstItem="Kpo-Zq-mZh" firstAttribute="top" secondItem="uXE-o6-Ieh" secondAttribute="top" constant="32" id="eeH-qm-sde"/>
                             <constraint firstItem="uXE-o6-Ieh" firstAttribute="trailing" secondItem="Kpo-Zq-mZh" secondAttribute="trailing" constant="64" id="fPW-gf-sBF"/>
                             <constraint firstItem="LTd-9g-A4W" firstAttribute="leading" secondItem="uXE-o6-Ieh" secondAttribute="leading" constant="64" id="iGR-dD-CHN"/>
