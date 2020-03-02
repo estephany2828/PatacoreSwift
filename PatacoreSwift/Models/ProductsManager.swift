@@ -13,6 +13,8 @@ class ProductsManger{
     
     private lazy var products:[Product] = self.loadProducts()
     
+    
+    
     //cuenta cuantos productos hay
     var productCount: Int{
         return products.count
