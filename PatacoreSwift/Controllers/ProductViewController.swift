@@ -25,7 +25,7 @@ class ProductViewController: UIViewController {
         if let product = product {
             imageTextField.text = product.imag
             nameTextField.text = product.name
-            priceTextField.text = product.price
+            priceTextField.text = String(product.price)
             descriptionTextField.text = product.description
             navigationItem.title = "Editar Productos"
             
@@ -42,7 +42,7 @@ class ProductViewController: UIViewController {
     
     // cuando le damos click guarda
     @IBAction func touchSave(_ sender: UIBarButtonItem) {
-        let productToSave = Product(name: nameTextField.text!, price: priceTextField.text!, description: descriptionTextField.text!, imag: imageTextField.text!)
+        let productToSave = Product(name: nameTextField.text!, price: Int(priceTextField.text!)!, description: descriptionTextField.text!, imag: imageTextField.text!)
         delegate?.saveProduct(productToSave)
         dismissMe()
         

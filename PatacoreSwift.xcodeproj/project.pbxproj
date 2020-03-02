@@ -17,6 +17,8 @@
 		0413734923ED2E49007CED13 /* PatacoreSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413734823ED2E49007CED13 /* PatacoreSwiftUITests.swift */; };
 		048BE20F23F08AE10010BB37 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BE20E23F08AE10010BB37 /* TabBarViewController.swift */; };
 		0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493A56723EF6DB800C82E62 /* SingInViewController.swift */; };
+		04CAE28824088EDF0057AC24 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAE28724088EDF0057AC24 /* DBHelper.swift */; };
+		04CAE28A24088F160057AC24 /* DBDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAE28924088F160057AC24 /* DBDeclarations.swift */; };
 		04CEC13E23F10180000D0D8D /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */; };
 		04E799AD23F2198300EFF3DE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799AC23F2198300EFF3DE /* Product.swift */; };
 		04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799AE23F22F7E00EFF3DE /* ProductsManager.swift */; };
@@ -67,6 +69,8 @@
 		0413734A23ED2E49007CED13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048BE20E23F08AE10010BB37 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0493A56723EF6DB800C82E62 /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
+		04CAE28724088EDF0057AC24 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		04CAE28924088F160057AC24 /* DBDeclarations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDeclarations.swift; sourceTree = "<group>"; };
 		04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		04E799AC23F2198300EFF3DE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04E799AE23F22F7E00EFF3DE /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		0413732523ED2E46007CED13 /* PatacoreSwift */ = {
 			isa = PBXGroup;
 			children = (
+				04CAE28624088EB20057AC24 /* DataBase */,
 				04A1548823EE735400749B37 /* Views */,
 				04A1548723EE733700749B37 /* Controllers */,
 				0413735623ED3710007CED13 /* Models */,
@@ -214,6 +219,15 @@
 			children = (
 			);
 			path = Tables;
+			sourceTree = "<group>";
+		};
+		04CAE28624088EB20057AC24 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				04CAE28724088EDF0057AC24 /* DBHelper.swift */,
+				04CAE28924088F160057AC24 /* DBDeclarations.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		1302B53BD3A3ABC248455F5A /* Pods */ = {
@@ -493,7 +507,9 @@
 				04E799B323F28A0E00EFF3DE /* DetailsTableViewController.swift in Sources */,
 				04E799B123F262A600EFF3DE /* ProductViewController.swift in Sources */,
 				04E799AD23F2198300EFF3DE /* Product.swift in Sources */,
+				04CAE28A24088F160057AC24 /* DBDeclarations.swift in Sources */,
 				04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */,
+				04CAE28824088EDF0057AC24 /* DBHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
