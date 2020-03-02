@@ -8,6 +8,14 @@
 
 import UIKit
 
+
+protocol OrderTableView {
+    func onClickCell (index: Int)
+    
+    func onNumberTextChanged (index: Int, text: String)
+}
+
+
 class OrderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelName: UILabel!
@@ -15,6 +23,8 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var textFieldAnnotation: UITextField!
     @IBOutlet weak var textFieldNumber: UITextField!
     
+    var cellDelegate: OrderTableView?
+    var index: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +37,16 @@ class OrderTableViewCell: UITableViewCell {
         
     }
 
+    @IBAction func numberTextChanged(_ sender: UITextField) {
+        cellDelegate?.onNumberTextChanged(index: (index?.row)!, text: (textFieldNumber.text)!)
+    }
+    
+    @IBAction func checkClick(_ sender: UISwitch) {
+        cellDelegate?.onClickCell(index: (index?.row)!)
+    }
+    
+    
+    @IBAction func sumClick(_ sender: UIButton) {
+        cellDelegate?.onClickCell(index: (index?.row)!)
+    }
 }
