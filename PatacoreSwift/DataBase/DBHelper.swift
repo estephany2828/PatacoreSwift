@@ -239,8 +239,6 @@ class DBHelper
         }
         sqlite3_finalize(queryStatement)
         return orders
-        
-        
     }
     
     func deleteOrder(table: Int, state: Int, product: String) {
@@ -250,7 +248,6 @@ class DBHelper
             sqlite3_bind_int(deleteStatement, 1, Int32(table))
             sqlite3_bind_int(deleteStatement, 2, Int32(state))
             sqlite3_bind_text(deleteStatement, 3, (product as NSString).utf8String, -1, nil)
-            
             
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 print("Successfully deleted row.")
