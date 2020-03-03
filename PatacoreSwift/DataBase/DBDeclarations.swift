@@ -48,9 +48,9 @@ struct DBDeclarations{
         DROP_TABLE_PRODUCT = "DROP TABLE IF EXISTS " + TABLE_PRODUCT
         
         TABLE_ORDER = "pedido"
-        COLUMN_ORDER_PRODUCT = "product"
-       
+        
         COLUMN_ORDER_TABLE = "table"
+        COLUMN_ORDER_PRODUCT = "product"
         COLUMN_ORDER_STATE = "state"
         COLUMN_ORDER_ANNOTATION = "annotation"
         COLUMN_ORDER_QUANTITY = "quantity"
@@ -65,3 +65,4 @@ struct DBDeclarations{
     }
     
 }
+
