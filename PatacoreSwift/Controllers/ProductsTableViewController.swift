@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CustomCell: UITableViewCell{
 
@@ -57,7 +58,11 @@ class ProductsTableViewController: UITableViewController {
         cell.lblName?.text = product.name
         cell.lblDescription?.text = product.description
         cell.lblPrice?.text = "$" + String(product.price)
-        cell.imgProduct?.image = product.img
+        //cell.imgProduct?.image = product.img
+        cell.imgProduct?.sd_setImage(with : URL(string: product.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+        
+        
+       
         //cell.textLabel?.text = product.name
         //cell.priceLabel?.text = product.price
         //cell.detailTextLabel?.text = product.description
@@ -88,8 +93,11 @@ class ProductsTableViewController: UITableViewController {
         
     }
     
-
+  
+   
+   
 }
+
 
 extension ProductsTableViewController:ProductViewControllerDelegate{
     func saveProduct(_ product: Product) {

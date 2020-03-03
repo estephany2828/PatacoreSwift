@@ -29,26 +29,33 @@ class ProductsManger{
     }
     //actualiza un producto de acuerdo a la poscion recibe posicion y el array
     func updateProduct(at index: Int, with product : Product ){
+        
         products[index] = product
                 
     }
     //despleja los productos que estan en un array o bd
     private func loadProducts()->[Product]{
-        return sampleProducts()
-        
+        return db.readProducts() ?? []
     }
+    
     //agrega productos y loscoloca al final
     func addProduct(_ product: Product){
+        //products.append(product)
+        //var product = product
+        db.insertProduct(product: product)
         products.append(product)
+        
     }
     //elimina el producto dea cuerdo al parametro de posicion que le envian
     func removeProduct(at index : Int){
         products.remove(at: index)
+        //let removeProduc = products.remove(at: index)
+        db.deleteProductByID(id: index)
     }
     
     //agregamos productos a la base de datos
     func SQLInsertProduct(){
-        db.insertProduct(product:Product(name: "Filet Mignon", price: 5000, description: "350gr de carne de res en salsa de champiñones, porción de arroz y ensalada",imag:"jjj"))        
+        db.insertProduct(product:Product(name: "Filet ", price: 5000, description: "350gr de carne de res en salsa de champiñones, porción de arroz y ensalada",imag:"https://image.freepik.com/foto-gratis/plato-pechuga-pollo_1205-4244.jpg"))
         products = db.readProducts()
         
     }
