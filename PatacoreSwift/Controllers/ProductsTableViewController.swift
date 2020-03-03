@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CustomCell: UITableViewCell{
 
@@ -26,8 +27,10 @@ class ProductsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         TableProd.dataSource = self
         TableProd.delegate = self
+        productsManager.SQLInsertProduct()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,7 +38,6 @@ class ProductsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +58,11 @@ class ProductsTableViewController: UITableViewController {
         cell.lblName?.text = product.name
         cell.lblDescription?.text = product.description
         cell.lblPrice?.text = "$" + String(product.price)
-        cell.imgProduct?.image = product.img
+        //cell.imgProduct?.image = product.img
+        cell.imgProduct?.sd_setImage(with : URL(string: product.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+        
+        
+       
         //cell.textLabel?.text = product.name
         //cell.priceLabel?.text = product.price
         //cell.detailTextLabel?.text = product.description
@@ -87,8 +93,11 @@ class ProductsTableViewController: UITableViewController {
         
     }
     
-
+  
+   
+   
 }
+
 
 extension ProductsTableViewController:ProductViewControllerDelegate{
     func saveProduct(_ product: Product) {
