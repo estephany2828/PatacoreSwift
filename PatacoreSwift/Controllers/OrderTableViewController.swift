@@ -23,13 +23,18 @@ class OrderTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         
+        //db.dropTableProduct()
         
-        db.deleteProductByID(id: 3)
-        db.deleteProductByID(id: 4)
-        db.deleteProductByID(id: 3)
         
-        dataTestDB()
+        //dataTestDB()
+        //deleteprods()
         products = db.readProducts()
+
+    }
+    
+    func deleteprods(){
+        db.deleteProductByID(id: 1)
+        db.deleteProductByID(id: 2)
 
     }
 

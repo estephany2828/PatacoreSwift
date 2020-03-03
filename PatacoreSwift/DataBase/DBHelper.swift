@@ -41,6 +41,23 @@ class DBHelper
         }
     }
     
+    func dropTableProduct (){
+        let dropTableString = DBDec.DROP_TABLE_PRODUCT
+        var dropTableStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, dropTableString, -1, &dropTableStatement, nil) == SQLITE_OK
+        {
+            if sqlite3_step(dropTableStatement) == SQLITE_DONE
+            {
+                print(DBDec.TABLE_PRODUCT + " table drop.")
+            } else {
+                print(DBDec.TABLE_PRODUCT + " table could not be created.")
+            }
+        } else {
+            print("CREATE TABLE statement could not be prepared.")
+        }
+        sqlite3_finalize(dropTableStatement)
+    }
+    
     func createTableProduct() {
         let createTableString = DBDec.CREATE_TABLE_PRODUCT
         var createTableStatement: OpaquePointer? = nil
