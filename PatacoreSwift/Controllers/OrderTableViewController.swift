@@ -9,19 +9,42 @@
 import UIKit
 
 class OrderTableViewController: UITableViewController {
-
+    let db = DBHelper()
+    var items = ["1", "2", "3"]
+    var products:[Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        //db.dropTableProduct()
+        
+        
+        //dataTestDB()
+        //deleteprods()
+        products = db.readProducts()
+
+    }
+    
+    func deleteprods(){
+        db.deleteProductByID(id: 1)
+        db.deleteProductByID(id: 2)
+
     }
 
     // MARK: - Table view data source
-     var items = ["1", "2", "3"]
+    func dataTestDB(){
+        db.insertProduct(product: Product(name: "POLLO", price: 20000, description: "POLLO BIEN FRITO", imag: "hola"))
+        db.insertProduct(product: Product(name: "CARNE", price: 15000, description: "CARNE ASADA", imag: "hola"))
+        db.insertProduct(product: Product(name: "ARROZ", price: 10000, description: "ARROZ BIEN MELO CARAMELO", imag: "hola"))
+    }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -30,15 +53,16 @@ class OrderTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return products.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
-        cell.labelName.text = items[indexPath.row]
-        cell.labelDescription.text = "Descripcion de " + items[indexPath.row]
-        cell.textFieldAnnotation.text = "Anotaciones de " + items[indexPath.row]
+        items = []
+        cell.labelName.text = products[indexPath.row].name
+        cell.labelDescription.text = "Descripcion de " + products[indexPath.row].description
+        cell.textFieldAnnotation.text = "Anotaciones de " + products[indexPath.row].name
         cell.cellDelegate = self
         cell.index = indexPath
         return cell
@@ -47,7 +71,8 @@ class OrderTableViewController: UITableViewController {
 }
 
 extension OrderTableViewController: OrderTableView {
-
+    
+    
     
     func onClickCell(index: Int) {
         print ("\(index) clicked")

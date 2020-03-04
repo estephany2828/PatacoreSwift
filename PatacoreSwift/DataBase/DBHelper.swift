@@ -41,6 +41,23 @@ class DBHelper
         }
     }
     
+    func dropTableProduct (){
+        let dropTableString = DBDec.DROP_TABLE_PRODUCT
+        var dropTableStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, dropTableString, -1, &dropTableStatement, nil) == SQLITE_OK
+        {
+            if sqlite3_step(dropTableStatement) == SQLITE_DONE
+            {
+                print(DBDec.TABLE_PRODUCT + " table drop.")
+            } else {
+                print(DBDec.TABLE_PRODUCT + " table could not be created.")
+            }
+        } else {
+            print("CREATE TABLE statement could not be prepared.")
+        }
+        sqlite3_finalize(dropTableStatement)
+    }
+    
     func createTableProduct() {
         let createTableString = DBDec.CREATE_TABLE_PRODUCT
         var createTableStatement: OpaquePointer? = nil
@@ -239,8 +256,6 @@ class DBHelper
         }
         sqlite3_finalize(queryStatement)
         return orders
-        
-        
     }
     
     func deleteOrder(table: Int, state: Int, product: String) {
@@ -250,7 +265,6 @@ class DBHelper
             sqlite3_bind_int(deleteStatement, 1, Int32(table))
             sqlite3_bind_int(deleteStatement, 2, Int32(state))
             sqlite3_bind_text(deleteStatement, 3, (product as NSString).utf8String, -1, nil)
-            
             
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 print("Successfully deleted row.")
