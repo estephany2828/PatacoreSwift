@@ -128,8 +128,8 @@ class DBHelper
         return prods
     }
     
-    func readProduct (name: String)->Product? {
-        let queryStatementString = "SELECT * FROM \(DBDec.TABLE_PRODUCT) WHERE \(DBDec.COLUMN_PRODUCT_NAME) == \(name);"
+    func readProduct (id: Int)->Product? {
+        let queryStatementString = "SELECT * FROM \(DBDec.TABLE_PRODUCT) WHERE \(DBDec.COLUMN_PRODUCT_ID) == \(id);"
         var queryStatement: OpaquePointer? = nil
         var prod : Product
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
@@ -153,6 +153,7 @@ class DBHelper
         sqlite3_finalize(queryStatement)
         return nil
     }
+    
     
     func deleteProductByID(id:Int) {
         let deleteStatementStirng = "DELETE FROM \(DBDec.TABLE_PRODUCT) WHERE \(DBDec.COLUMN_PRODUCT_ID) = ?;"
@@ -191,6 +192,23 @@ class DBHelper
             print("CREATE TABLE statement could not be prepared.")
         }
         sqlite3_finalize(createTableStatement)
+    }
+    
+    func dropTableOrder (){
+        let dropTableString = DBDec.DELETE_TABLE_ORDER
+        var dropTableStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, dropTableString, -1, &dropTableStatement, nil) == SQLITE_OK
+        {
+            if sqlite3_step(dropTableStatement) == SQLITE_DONE
+            {
+                print(DBDec.TABLE_ORDER + " table drop.")
+            } else {
+                print(DBDec.TABLE_ORDER + " table could not be created.")
+            }
+        } else {
+            print("CREATE TABLE statement could not be prepared.")
+        }
+        sqlite3_finalize(dropTableStatement)
     }
     
     func insertOrder(order: Order)
@@ -234,10 +252,10 @@ class DBHelper
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
                 let table = sqlite3_column_int(queryStatement, 0)
-                let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let id = sqlite3_column_int(queryStatement, 1)
                 let product: Product
-                if (readProduct(name: name) != nil){
-                    product = readProduct(name: name)!
+                if (readProduct(id: Int(id)) != nil){
+                    product = readProduct(id: Int(id))!
                 }else{
                     product = Product(name: "", price: 0, description: "", imag: "")
                 }
@@ -249,7 +267,7 @@ class DBHelper
                 let hour = String(describing: String(cString: sqlite3_column_text(queryStatement, 6)))
                 orders.append(Order(product: product, table: Int(table), state: Int(state), annotation: annotation, quantity: Int(quantity), date: date, hour: hour) )
                 print("Query Result:")
-                print("\(table) | \(name) | \(state) | \(annotation)")
+                print("\(table) | \(id) | \(state) | \(annotation)")
             }
         } else {
             print("SELECT statement could not be prepared")

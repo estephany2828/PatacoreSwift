@@ -29,6 +29,8 @@ class OrderTableViewController: UITableViewController {
         //dataTestDB()
         //deleteprods()
         products = db.readProducts()
+        
+        //db.dropTableOrder()
 
     }
     
@@ -73,12 +75,22 @@ class OrderTableViewController: UITableViewController {
 extension OrderTableViewController: OrderTableView {
     
     
+    func onClickCheck(index: Int, state: Bool) {
+        print ("\(index) clicked is \(state)")
+    }
     
-    func onClickCell(index: Int) {
-        print ("\(index) clicked")
+    func onClickPlus(index: Int, number: Int) {
+        print ("\(index) clicked plus")
+    }
+
+    func onClickSustrain(index: Int, number: Int) {
+        print ("\(index) clicked sustrain")
     }
     
     func onNumberTextChanged(index: Int, text: String) {
+        print ("\(index) textChanged to: \(text)")
+    }
+    func onAnnotationEditEnd(index: Int, text: String) {
         print ("\(index) textChanged to: \(text)")
     }
     
