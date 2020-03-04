@@ -30,7 +30,7 @@ class ProductsTableViewController: UITableViewController {
         
         TableProd.dataSource = self
         TableProd.delegate = self
-        productsManager.SQLInsertProduct()
+        //productsManager.SQLInsertProduct()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

@@ -48,9 +48,10 @@ class ProductsManger{
     }
     //elimina el producto dea cuerdo al parametro de posicion que le envian
     func removeProduct(at index : Int){
-        products.remove(at: index)
-        //let removeProduc = products.remove(at: index)
-        db.deleteProductByID(id: index)
+        
+        let removeProduc = products.remove(at: index)
+        db.deleteProductByID(id: removeProduc.id)
+        //products.remove(at: index)
     }
     
     //agregamos productos a la base de datos
