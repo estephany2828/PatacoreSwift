@@ -216,22 +216,22 @@ class DBHelper
         let orders = readOrders()
         for o in orders
         {
-            if o.name == order.name
+            if o.id == order.id
             {
                 return
             }
         }
         
-        let insertStatementString = "INSERT INTO  \(DBDec.TABLE_PRODUCT) ( \(DBDec.COLUMN_ORDER_TABLE), \(DBDec.COLUMN_ORDER_PRODUCT), \(DBDec.COLUMN_ORDER_STATE), \(DBDec.COLUMN_ORDER_ANNOTATION), \(DBDec.COLUMN_ORDER_QUANTITY), \(DBDec.COLUMN_ORDER_DATE), \(DBDec.COLUMN_ORDER_HOUR) ) VALUES (?, ?, ?, ?, ?, ?, ?);"
+        let insertStatementString = "INSERT INTO  \(DBDec.TABLE_ORDER) (\(DBDec.COLUMN_ORDER_TABLE), \(DBDec.COLUMN_ORDER_PRODUCT), \(DBDec.COLUMN_ORDER_STATE), \(DBDec.COLUMN_ORDER_ANNOTATION), \(DBDec.COLUMN_ORDER_QUANTITY), \(DBDec.COLUMN_ORDER_DATE), \(DBDec.COLUMN_ORDER_HOUR) ) VALUES (?, ?, ?, ?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(insertStatement, 1, Int32(order.table))
-            sqlite3_bind_text(insertStatement, 2, (order.name as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 2, Int32(order.id))
             sqlite3_bind_int(insertStatement, 3, Int32(order.state))
             sqlite3_bind_text(insertStatement, 4, (order.annotation as NSString).utf8String, -1, nil)
-            sqlite3_bind_int(insertStatement, 3, Int32(order.quantity))
-            sqlite3_bind_text(insertStatement, 4, (order.date as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(insertStatement, 4, (order.hour as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement,5, Int32(order.quantity))
+            sqlite3_bind_text(insertStatement, 6, (order.date as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 7, (order.hour as NSString).utf8String, -1, nil)
             
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
@@ -276,15 +276,47 @@ class DBHelper
         return orders
     }
     
-    func deleteOrder(table: Int, state: Int, product: String) {
-        let deleteStatementStirng = "DELETE FROM \(DBDec.TABLE_ORDER) WHERE \(DBDec.COLUMN_ORDER_TABLE) = ? AND \(DBDec.COLUMN_ORDER_STATE) = ? AND \(DBDec.COLUMN_ORDER_PRODUCT) = ?;"
+    func readOrder (table: Int, state: Int, product: Int)->Order? {
+        let queryStatementString = "SELECT * FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(product));"
+        var queryStatement: OpaquePointer? = nil
+        var order : Order
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                let table = sqlite3_column_int(queryStatement, 0)
+                let id = sqlite3_column_int(queryStatement, 1)
+                let product: Product
+                if (readProduct(id: Int(id)) != nil){
+                    product = readProduct(id: Int(id))!
+                }else{
+                    product = Product(name: "", price: 0, description: "", imag: "")
+                }
+                
+                let state = sqlite3_column_int(queryStatement, 2)
+                let annotation = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let quantity = sqlite3_column_int(queryStatement, 4)
+                let date = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
+                let hour = String(describing: String(cString: sqlite3_column_text(queryStatement, 6)))
+                order = Order(product: product, table: Int(table), state: Int(state), annotation: annotation, quantity: Int(quantity), date: date, hour: hour)
+                print("Query Result:")
+                print("\(table) | \(id) | \(state) | \(annotation)")
+                return order
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return nil
+    }
+    
+    func deleteOrder(table: Int, state: Int, product: Int) {
+        let deleteStatementStirng = "DELETE FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(product));"
         var deleteStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(deleteStatement, 1, Int32(table))
-            sqlite3_bind_int(deleteStatement, 2, Int32(state))
-            sqlite3_bind_text(deleteStatement, 3, (product as NSString).utf8String, -1, nil)
-            
+            //sqlite3_bind_int(deleteStatement, 1, Int32(table))
+            //sqlite3_bind_int(deleteStatement, 2, Int32(state))
+            //sqlite3_bind_int(deleteStatement, 2, Int32(product))
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                print (deleteStatementStirng)
                 print("Successfully deleted row.")
             } else {
                 print("Could not delete row.")
