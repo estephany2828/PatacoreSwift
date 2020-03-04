@@ -181,7 +181,7 @@
                     <navigationItem key="navigationItem" id="FTY-XV-oHI">
                         <barButtonItem key="rightBarButtonItem" title="Confirmar" id="OFh-sS-RyP">
                             <connections>
-                                <segue destination="BUe-2g-yqn" kind="presentation" id="s4K-zL-ZvU"/>
+                                <action selector="confirmClicked:" destination="glA-TJ-xsa" id="gKL-uJ-plm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -195,7 +195,7 @@
             <objects>
                 <navigationController id="BUe-2g-yqn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RFf-HT-poC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -211,7 +211,7 @@
             <objects>
                 <viewController id="LRH-fI-ZML" customClass="ConfirmOrderViewController" customModule="PatacoreSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="glP-qc-ykg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsx-63-hVG">

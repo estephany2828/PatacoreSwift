@@ -41,6 +41,15 @@ class OrderTableViewController: UITableViewController {
 
     }
 
+    @IBAction func confirmClicked(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Aceptar Cambios", message: "Cambio 1 \n Cambio 2", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+            
+        }))
+
+        self.present(alert, animated: true)
+    }
     // MARK: - Table view data source
     func dataTestDB(){
         db.insertProduct(product: Product(name: "POLLO", price: 20000, description: "POLLO BIEN FRITO", imag: "hola"))
