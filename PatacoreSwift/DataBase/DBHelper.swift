@@ -276,6 +276,34 @@ class DBHelper
         return orders
     }
     
+    func readOrdersByState_Table (table: Int, state: Int)->[Order] {
+        let queryStatementString = "SELECT * FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state));"
+        var queryStatement: OpaquePointer? = nil
+        var orders : [Order] = []
+        while sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                let table = sqlite3_column_int(queryStatement, 0)
+                let id = sqlite3_column_int(queryStatement, 1)
+                let product: Product
+                if (readProduct(id: Int(id)) != nil){
+                    product = readProduct(id: Int(id))!
+                }else{
+                    product = Product(name: "", price: 0, description: "", imag: "")
+                }
+                
+                let state = sqlite3_column_int(queryStatement, 2)
+                let annotation = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let quantity = sqlite3_column_int(queryStatement, 4)
+                let date = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
+                let hour = String(describing: String(cString: sqlite3_column_text(queryStatement, 6)))
+                orders.append(Order(product: product, table: Int(table), state: Int(state), annotation: annotation, quantity: Int(quantity), date: date, hour: hour))
+                print("Query Result:")
+                print("\(table) | \(id) | \(state) | \(annotation)")
+            }
+        }
+        return orders
+    }
+    
     func readOrder (table: Int, state: Int, product: Int)->Order? {
         let queryStatementString = "SELECT * FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(product));"
         var queryStatement: OpaquePointer? = nil
