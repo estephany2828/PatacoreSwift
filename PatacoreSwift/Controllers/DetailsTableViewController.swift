@@ -44,20 +44,20 @@ class DetailsTableViewController: UITableViewController {
         return cell
     }
    
-    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     //   if let selectedIndexPath = tableView.indexPathForSelectedRow,
-      //  let detailsViewController = segue.destination
-        //    as? DetailsViewController{
-          //  detailsViewController.detailsproduct
-            //    = productsManager.getProduct(at: selectedIndexPath.row)
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow,
+        let detailsViewController = segue.destination
+            as? DetailsViewController{
+            detailsViewController.detailsproduct
+                = productsManager.getProduct(at: selectedIndexPath.row)
             ////detailsViewController.delegate = self
-        //} else if let navController = segue.destination as? UINavigationController{
-          //  if let detailsViewController = navController.topViewController as? DetailsViewController{
+        } else if let navController = segue.destination as? UINavigationController{
+            if let detailsViewController = navController.topViewController as? DetailsViewController{
                 //detailsViewController.delegate = self
-            //}
-        //}
+            }
+        }
         
-    //}
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -17,20 +17,20 @@ class DetailsViewController: UIViewController {
     
     
 
-   
+    @IBOutlet weak var imgView: UIImageView!
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let detailsOrder = detailsproduct{
-           // nameText.text = detailsproduct?.name
+           //nameText.text = detailsproduct?.name
             
             //nroPlatosText.text = String(detailsproduct!.price)
             
             //descriptionText.text = detailsproduct?.description
             
-            //imgDetailsImageView.sd_setImage(with : URL(string: detailsproduct!.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+            imgView.sd_setImage(with : URL(string: detailsproduct!.imag), placeholderImage: UIImage(named: "panadero.jpg"))
             
             
             
