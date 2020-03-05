@@ -50,7 +50,8 @@ class ProductsManger{
     func removeProduct(at index : Int){
         
         let removeProduc = products.remove(at: index)
-        db.deleteProductByID(id: removeProduc.id)
+        print(removeProduc.id)
+        //db.deleteProductByID(id: 3)
         //products.remove(at: index)
     }
     

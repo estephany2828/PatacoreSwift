@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailsTableViewController: UITableViewController {
-
+    
+    var productsManager: ProductsManger = ProductsManger()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+      
     }
 
     // MARK: - Table view data source
@@ -29,18 +29,35 @@ class DetailsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return productsManager.productCount
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detCell", for: indexPath)
 
-        // Configure the cell...
-
+        let detailsOrder = productsManager.getProduct(at: indexPath.row)
+        cell.textLabel?.text = detailsOrder.name
+        cell.detailTextLabel?.text = detailsOrder.description
+        cell.imageView?.sd_setImage(with : URL(string: detailsOrder.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+        
         return cell
     }
-    */
+   
+    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     //   if let selectedIndexPath = tableView.indexPathForSelectedRow,
+      //  let detailsViewController = segue.destination
+        //    as? DetailsViewController{
+          //  detailsViewController.detailsproduct
+            //    = productsManager.getProduct(at: selectedIndexPath.row)
+            ////detailsViewController.delegate = self
+        //} else if let navController = segue.destination as? UINavigationController{
+          //  if let detailsViewController = navController.topViewController as? DetailsViewController{
+                //detailsViewController.delegate = self
+            //}
+        //}
+        
+    //}
 
     /*
     // Override to support conditional editing of the table view.
