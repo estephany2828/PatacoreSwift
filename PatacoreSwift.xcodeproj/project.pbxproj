@@ -32,6 +32,7 @@
 		798334E123F352D600F50DD8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798334E023F352D600F50DD8 /* Colors.xcassets */; };
 		87210977E9856595623DA250 /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */; };
 		FB326761240F1F800095F1B9 /* OrdersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB326760240F1F800095F1B9 /* OrdersManager.swift */; };
+		FB326763240F369B0095F1B9 /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */; };
 		FBF0F33C23F373C60014ED7E /* TableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F33B23F373C60014ED7E /* TableCollectionViewController.swift */; };
 		FBF0F33E23F375C00014ED7E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F33D23F375C00014ED7E /* TableViewController.swift */; };
 		FBF0F34023F377030014ED7E /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F33F23F377030014ED7E /* TableCollectionViewCell.swift */; };
@@ -94,6 +95,7 @@
 		B29D3FD7EDF4ED59FE33C4D6 /* Pods-PatacoreSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift.release.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift.release.xcconfig"; sourceTree = "<group>"; };
 		CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB326760240F1F800095F1B9 /* OrdersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersManager.swift; sourceTree = "<group>"; };
+		FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderViewController.swift; sourceTree = "<group>"; };
 		FBF0F33B23F373C60014ED7E /* TableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewController.swift; sourceTree = "<group>"; };
 		FBF0F33D23F375C00014ED7E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FBF0F33F23F377030014ED7E /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				04E799B023F262A600EFF3DE /* ProductViewController.swift */,
 				04E799B223F28A0E00EFF3DE /* DetailsTableViewController.swift */,
 				04D5618B240FFEF00094F11C /* DetailsViewController.swift */,
+				FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */,
 				04CEC13E23F10180000D0D8D /* ProductsTableViewController.swift in Sources */,
 				0413732B23ED2E46007CED13 /* ViewController.swift in Sources */,
+				FB326763240F369B0095F1B9 /* ConfirmOrderViewController.swift in Sources */,
 				0413732723ED2E46007CED13 /* AppDelegate.swift in Sources */,
 				FB326761240F1F800095F1B9 /* OrdersManager.swift in Sources */,
 				048BE20F23F08AE10010BB37 /* TabBarViewController.swift in Sources */,

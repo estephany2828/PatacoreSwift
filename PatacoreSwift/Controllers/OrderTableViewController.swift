@@ -12,6 +12,7 @@ class OrderTableViewController: UITableViewController {
     let db = DBHelper()
     var items = ["1", "2", "3"]
     var products:[Product] = []
+    var orderManager = OrdersManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class OrderTableViewController: UITableViewController {
         dataTestDB()
         deleteprods()
         products = db.readProducts()
+        //dataTestDB()
+        //db.dropTableOrder()
 
     }
     
@@ -38,11 +41,20 @@ class OrderTableViewController: UITableViewController {
 
     }
 
+    @IBAction func confirmClicked(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Aceptar Cambios", message: "Cambio 1 \n Cambio 2", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+            
+        }))
+
+        self.present(alert, animated: true)
+    }
     // MARK: - Table view data source
     func dataTestDB(){
         db.insertProduct(product: Product(name: "POLLO", price: 20000, description: "POLLO BIEN FRITO", imag: "hola"))
         db.insertProduct(product: Product(name: "CARNE", price: 15000, description: "CARNE ASADA", imag: "hola"))
-        db.insertProduct(product: Product(name: "ARROZ", price: 10000, description: "ARROZ BIEN MELO CARAMELO", imag: "hola"))
+        //db.insertProduct(product: Product(name: "ARROZ", price: 10000, description: "ARROZ BIEN MELO CARAMELO", imag: "hola"))
     }
     
 
@@ -55,11 +67,14 @@ class OrderTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return products.count
     }
+    
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         items = []
+        
+        cell.selectOrder.isOn = orderManager.issetOrder(id: products[indexPath.row].id, table: 1, state: 1)
         cell.labelName.text = products[indexPath.row].name
         cell.labelDescription.text = "Descripcion de " + products[indexPath.row].description
         cell.textFieldAnnotation.text = "Anotaciones de " + products[indexPath.row].name
@@ -73,12 +88,33 @@ class OrderTableViewController: UITableViewController {
 extension OrderTableViewController: OrderTableView {
     
     
+    func onClickCheck(index: Int, state: Bool) {
+        print ("\(index) clicked is \(state)  \(products[index].id)")
+        
+        if (state){
+            var order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 2, date: "15/01/2019", hour: "2:03")
+            
+            orderManager.addOrder(order)
+            
+            
+        }else{
+            orderManager.removeOrder(id: products[index].id, table: 1, state: 1)
+        }
+
+    }
     
-    func onClickCell(index: Int) {
-        print ("\(index) clicked")
+    func onClickPlus(index: Int, number: Int) {
+        print ("\(index) clicked plus")
+    }
+
+    func onClickSustrain(index: Int, number: Int) {
+        print ("\(index) clicked sustrain")
     }
     
     func onNumberTextChanged(index: Int, text: String) {
+        print ("\(index) textChanged to: \(text)")
+    }
+    func onAnnotationEditEnd(index: Int, text: String) {
         print ("\(index) textChanged to: \(text)")
     }
     

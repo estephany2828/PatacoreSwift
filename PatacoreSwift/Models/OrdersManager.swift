@@ -31,19 +31,28 @@ class OrdersManager {
       private func loadOrders()->[Order]{
           return db.readOrders()
       }
+    
+    func issetOrder (id : Int, table: Int, state: Int) ->Bool{
+        if (db.readOrder(table: table, state: state, product: id) != nil){
+            return true
+        }else{
+            return false
+        }
+    }
       
 
       func addOrder(_ order: Order){
 
           db.insertOrder(order: order)
-          orders.append(order)
+        db.readOrders()
+          //orders.append(order)
           
       }
       
-    func removeOrder(index : Int, table: Int, state: Int){
-          orders.remove(at: index)
-
-          db.deleteProductByID(id: index)
+    func removeOrder(id : Int, table: Int, state: Int){
+        //orders.remove(at: index)
+        db.deleteOrder(table: table, state: state, product: id)
+        
       }
       
       
@@ -55,7 +64,32 @@ class OrdersManager {
       }
       
       
-    
+    func detectChanges (table: Int){
+        let actualOrders = db.readOrdersByState_Table(table: table, state: 2)
+        let newOrders = db.readOrdersByState_Table(table: table, state: 1)
+        var changes: String = ""
+        for a in actualOrders{
+            for n in newOrders{
+                if (a.id == n.id){
+                    let dif:Int = n.quantity - a.quantity
+                    if (dif > 0){
+                        changes += "Añadir \(abs(dif)) \(n.name)"
+                    }else if (dif < 0 ){
+                        changes += "Quitar \(abs(dif)) \(n.name)"
+                    }
+                }
+                
+                if (a.id != n.id){
+                    let dif:Int = n.quantity - a.quantity
+                    if (dif > 0){
+                        changes += "Añadir \(abs(dif)) \(n.name)"
+                    }else if (dif < 0 ){
+                        changes += "Quitar \(abs(dif)) \(n.name)"
+                    }
+                }
+            }
+        }
+    }
     
     
     
