@@ -213,14 +213,6 @@ class DBHelper
     
     func insertOrder(order: Order)
     {
-        let orders = readOrders()
-        for o in orders
-        {
-            if o.id == order.id
-            {
-                return
-            }
-        }
         
         let insertStatementString = "INSERT INTO  \(DBDec.TABLE_ORDER) (\(DBDec.COLUMN_ORDER_TABLE), \(DBDec.COLUMN_ORDER_PRODUCT), \(DBDec.COLUMN_ORDER_STATE), \(DBDec.COLUMN_ORDER_ANNOTATION), \(DBDec.COLUMN_ORDER_QUANTITY), \(DBDec.COLUMN_ORDER_DATE), \(DBDec.COLUMN_ORDER_HOUR) ) VALUES (?, ?, ?, ?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
@@ -280,8 +272,8 @@ class DBHelper
         let queryStatementString = "SELECT * FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state));"
         var queryStatement: OpaquePointer? = nil
         var orders : [Order] = []
-        while sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
-            if sqlite3_step(queryStatement) == SQLITE_ROW {
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
                 let table = sqlite3_column_int(queryStatement, 0)
                 let id = sqlite3_column_int(queryStatement, 1)
                 let product: Product
@@ -297,7 +289,7 @@ class DBHelper
                 let date = String(describing: String(cString: sqlite3_column_text(queryStatement, 5)))
                 let hour = String(describing: String(cString: sqlite3_column_text(queryStatement, 6)))
                 orders.append(Order(product: product, table: Int(table), state: Int(state), annotation: annotation, quantity: Int(quantity), date: date, hour: hour))
-                print("Query Result:")
+                print("Query Result (ROBST):")
                 print("\(table) | \(id) | \(state) | \(annotation)")
             }
         }
@@ -334,6 +326,18 @@ class DBHelper
         }
         sqlite3_finalize(queryStatement)
         return nil
+    }
+    
+    func deleteOrdersByState_Table(table: Int, state: Int) {
+        let deleteStatementStirng = "DELETE FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state));"
+        var deleteStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
+            while sqlite3_step(deleteStatement) == SQLITE_ROW {
+                print (deleteStatementStirng)
+                print("Successfully deleted row.")
+            }
+        }
+        sqlite3_finalize(deleteStatement)
     }
     
     func deleteOrder(table: Int, state: Int, product: Int) {

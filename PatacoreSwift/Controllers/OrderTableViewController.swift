@@ -12,7 +12,7 @@ class OrderTableViewController: UITableViewController {
     let db = DBHelper()
     var items = ["1", "2", "3"]
     var products:[Product] = []
-    var orderManager = OrdersManager()
+    var orderManager = OrdersManager(table: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +42,17 @@ class OrderTableViewController: UITableViewController {
     }
 
     @IBAction func confirmClicked(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Aceptar Cambios", message: "Cambio 1 \n Cambio 2", preferredStyle: .alert)
+        let changes: String = self.orderManager.detectChanges(table: 1)
+        let alert = UIAlertController(title: "Aceptar Cambios?", message: changes, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
-            
+            self.orderManager.actOrders()
         }))
 
         self.present(alert, animated: true)
     }
+    
+    
     // MARK: - Table view data source
     func dataTestDB(){
         db.insertProduct(product: Product(name: "POLLO", price: 20000, description: "POLLO BIEN FRITO", imag: "hola"))
@@ -74,7 +77,7 @@ class OrderTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         items = []
         
-        cell.selectOrder.isOn = orderManager.issetOrder(id: products[indexPath.row].id, table: 1, state: 1)
+        cell.selectOrder.isOn = orderManager.issetOrder(id: products[indexPath.row].id)
         cell.labelName.text = products[indexPath.row].name
         cell.labelDescription.text = "Descripcion de " + products[indexPath.row].description
         cell.textFieldAnnotation.text = "Anotaciones de " + products[indexPath.row].name
@@ -92,13 +95,13 @@ extension OrderTableViewController: OrderTableView {
         print ("\(index) clicked is \(state)  \(products[index].id)")
         
         if (state){
-            var order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 2, date: "15/01/2019", hour: "2:03")
+            let order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 2, date: "15/01/2019", hour: "2:03")
             
             orderManager.addOrder(order)
             
             
         }else{
-            orderManager.removeOrder(id: products[index].id, table: 1, state: 1)
+            orderManager.removeOrder(id: products[index].id)
         }
 
     }
