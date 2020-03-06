@@ -12,36 +12,48 @@ import UIKit
 class OrdersManager {
     var table:Int
     var db:DBHelper = DBHelper ()
-    private lazy var orders: [Order] = db.readOrders ()
+    private var orders: [Order]
     
     init (table: Int){
         self.table = table
+        orders = db.readOrdersByState_Table(table: self.table, state: 1)
     }
     
     var orderCount: Int{
           return orders.count
-      }
+    }
 
-      func getOrder(at index: Int)->Product{
-          return orders[index]
-      }
+    func getOrder(idProd: Int)->Order?{
+        for o in orders{
+            if (o.id == idProd){
+                return o
+            }
+        }
+        return nil
+    }
       
-      func updateOrder(at index: Int, with order : Order ){
-          
-          orders[index] = order
-                  
-      }
+    func updateOrderQuantity (product: Product, quantity: Int){
+        db.updateOrderQuantity(order: Order(product: product, table: self.table, state: 1, annotation: "", quantity: quantity, date: "", hour: ""))
+    }
+    
+    func updateOrderAnnotation (product: Product, annotation: String){
+        db.updateOrderAnnotation(order: Order(product: product, table: self.table, state: 1, annotation: annotation, quantity: 1, date: "", hour: ""))
+    }
+    
   
-      private func loadOrders()->[Order]{
-          return db.readOrders()
-      }
+    private func loadOrders()->[Order]{
+        return db.readOrders()
+    }
     
     func issetOrder (id : Int) ->Bool{
-        if (db.readOrder(table: table, state: 1, product: id) != nil){
-            return true
-        }else{
-            return false
+        orders = db.readOrdersByState_Table(table: self.table, state: 1)
+        var isset: Bool = false
+        for o in orders{
+            if (o.id == id){
+                isset = true
+            }
         }
+        return isset
     }
       
 

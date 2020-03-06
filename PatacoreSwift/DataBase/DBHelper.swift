@@ -296,6 +296,34 @@ class DBHelper
         return orders
     }
     
+    func updateOrderQuantity (order: Order) {
+        let queryStatementString = "UPDATE \(DBDec.TABLE_ORDER) SET \(DBDec.COLUMN_ORDER_QUANTITY) = \(order.quantity) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(order.table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(order.state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(order.id));"
+        var updateStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+                print("Successfully updated row.")
+            }
+        } else {
+           print("Could not updated row.")
+        }
+        sqlite3_finalize(updateStatement)
+    }
+    
+    func updateOrderAnnotation (order: Order) {
+        let queryStatementString = "UPDATE \(DBDec.TABLE_ORDER) SET \(DBDec.COLUMN_ORDER_ANNOTATION) = \(order.annotation) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(order.table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(order.state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(order.id));"
+        var updateStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+                print("Successfully updated row.")
+            }
+        } else {
+           print("Could not updated row.")
+        }
+        sqlite3_finalize(updateStatement)
+    }
+    
+    
+    
     func readOrder (table: Int, state: Int, product: Int)->Order? {
         let queryStatementString = "SELECT * FROM \(DBDec.TABLE_ORDER) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(product));"
         var queryStatement: OpaquePointer? = nil

@@ -14,8 +14,7 @@ protocol OrderTableView {
     func onClickSustrain (index: Int, number: Int)
     func onClickCheck (index: Int, state: Bool)
     func onAnnotationEditEnd (index: Int, text: String)
-    
-    func onNumberTextChanged (index: Int, text: String)
+    func onQuantityTextChanged (index: Int, quantity: Int)
 }
 
 
@@ -39,24 +38,51 @@ class OrderTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    @IBAction func annotationEditingDidEnd(_ sender: Any) {
-        cellDelegate?.onAnnotationEditEnd(index: (index?.row)!, text: (textFieldAnnotation.text)!)
-    }
     @IBAction func numberTextChanged(_ sender: UITextField) {
-        cellDelegate?.onNumberTextChanged(index: (index?.row)!, text: (textFieldNumber.text)!)
+        let quantity = readQuantity()
+        if (quantity > 0){
+            selectOrder.isOn = true
+        }
+        cellDelegate?.onQuantityTextChanged(index: (index?.row)!, quantity: quantity)
     }
     
     @IBAction func checkClick(_ sender: UISwitch) {
-        cellDelegate?.onClickCheck(index: (index?.row)!, state: selectOrder.isOn)
+        let state = selectOrder.isOn
+        if state{
+            textFieldNumber.text = "1"
+        }else {
+            textFieldNumber.text = "0"
+        }
+        cellDelegate?.onClickCheck(index: (index?.row)!, state: state)
     }
     
     
     @IBAction func plusClick(_ sender: UIButton) {
-        cellDelegate?.onClickPlus(index: (index?.row)!, number: 1)
+        var quantity = readQuantity()
+        if (quantity >= 0){
+            selectOrder.isOn = true
+            quantity += 1
+            textFieldNumber.text = String(quantity)
+        }
+        cellDelegate?.onQuantityTextChanged(index: (index?.row)!, quantity: quantity)
     }
     
     @IBAction func sustrainClick(_ sender: UIButton) {
-        cellDelegate?.onClickSustrain(index: (index?.row)!, number: 1)
+        var quantity = readQuantity()
+        if (quantity > 1){
+            selectOrder.isOn = true
+            quantity -= 1
+            textFieldNumber.text = String(quantity)
+        }
+        cellDelegate?.onQuantityTextChanged(index: (index?.row)!, quantity: quantity)
+    }
+    
+    func readQuantity ()->Int{
+        var quantity:Int? = Int(textFieldNumber.text!)
+        if (quantity == nil){
+            quantity = 0
+        }
+        return quantity!
     }
     
 }

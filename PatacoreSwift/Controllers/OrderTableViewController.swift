@@ -8,7 +8,11 @@
 
 import UIKit
 
+
 class OrderTableViewController: UITableViewController {
+    
+    
+    @IBOutlet var tableViewOrder: UITableView!
     let db = DBHelper()
     var items = ["1", "2", "3"]
     var products:[Product] = []
@@ -76,11 +80,21 @@ class OrderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
         items = []
+        let order: Order? =  orderManager.getOrder(idProd: products[indexPath.row].id)
+        if (order != nil){
+            cell.selectOrder.isOn = true
+            cell.textFieldAnnotation.text = order!.annotation
+            cell.textFieldNumber.text = String(order!.quantity)
+        }else{
+            cell.selectOrder.isOn = false
+            cell.textFieldAnnotation.text = ""
+            cell.textFieldNumber.text = "0"
+        }
         
-        cell.selectOrder.isOn = orderManager.issetOrder(id: products[indexPath.row].id)
+        
         cell.labelName.text = products[indexPath.row].name
-        cell.labelDescription.text = "Descripcion de " + products[indexPath.row].description
-        cell.textFieldAnnotation.text = "Anotaciones de " + products[indexPath.row].name
+        cell.labelDescription.text = products[indexPath.row].description
+        
         cell.cellDelegate = self
         cell.index = indexPath
         return cell
@@ -89,13 +103,12 @@ class OrderTableViewController: UITableViewController {
 }
 
 extension OrderTableViewController: OrderTableView {
-    
-    
+
     func onClickCheck(index: Int, state: Bool) {
         print ("\(index) clicked is \(state)  \(products[index].id)")
         
         if (state){
-            let order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 2, date: "15/01/2019", hour: "2:03")
+            let order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 1, date: "15/01/2019", hour: "2:03")
             
             orderManager.addOrder(order)
             
@@ -114,8 +127,17 @@ extension OrderTableViewController: OrderTableView {
         print ("\(index) clicked sustrain")
     }
     
-    func onNumberTextChanged(index: Int, text: String) {
-        print ("\(index) textChanged to: \(text)")
+    func onQuantityTextChanged(index: Int, quantity: Int) {
+        print ("\(index) textChanged")
+        
+        if (orderManager.issetOrder(id: products[index].id)){
+            orderManager.updateOrderQuantity(product: products[index], quantity: quantity)
+        }else{
+            orderManager.addOrder(Order(product: products[index], table: 1, state: 1, annotation: "", quantity: quantity, date: "15/01/2019", hour: "2:03"))
+        }
+        
+        
+        
     }
     func onAnnotationEditEnd(index: Int, text: String) {
         print ("\(index) textChanged to: \(text)")
