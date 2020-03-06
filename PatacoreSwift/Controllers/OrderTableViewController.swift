@@ -24,11 +24,11 @@ class OrderTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         
-        //db.dropTableProduct()
+            //db.dropTableProduct()
         
         
-        //dataTestDB()
-        //deleteprods()
+        dataTestDB()
+        deleteprods()
         products = db.readProducts()
         //dataTestDB()
         //db.dropTableOrder()

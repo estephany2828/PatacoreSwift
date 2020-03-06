@@ -20,6 +20,7 @@
 		04CAE28824088EDF0057AC24 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAE28724088EDF0057AC24 /* DBHelper.swift */; };
 		04CAE28A24088F160057AC24 /* DBDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CAE28924088F160057AC24 /* DBDeclarations.swift */; };
 		04CEC13E23F10180000D0D8D /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */; };
+		04D5618C240FFEF00094F11C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5618B240FFEF00094F11C /* DetailsViewController.swift */; };
 		04E799AD23F2198300EFF3DE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799AC23F2198300EFF3DE /* Product.swift */; };
 		04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799AE23F22F7E00EFF3DE /* ProductsManager.swift */; };
 		04E799B123F262A600EFF3DE /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E799B023F262A600EFF3DE /* ProductViewController.swift */; };
@@ -76,6 +77,7 @@
 		04CAE28724088EDF0057AC24 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		04CAE28924088F160057AC24 /* DBDeclarations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDeclarations.swift; sourceTree = "<group>"; };
 		04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
+		04D5618B240FFEF00094F11C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		04E799AC23F2198300EFF3DE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04E799AE23F22F7E00EFF3DE /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
 		04E799B023F262A600EFF3DE /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */,
 				04E799B023F262A600EFF3DE /* ProductViewController.swift */,
 				04E799B223F28A0E00EFF3DE /* DetailsTableViewController.swift */,
+				04D5618B240FFEF00094F11C /* DetailsViewController.swift */,
 				FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */,
 			);
 			path = Controllers;
@@ -526,6 +529,7 @@
 				04CAE28A24088F160057AC24 /* DBDeclarations.swift in Sources */,
 				04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */,
 				04CAE28824088EDF0057AC24 /* DBHelper.swift in Sources */,
+				04D5618C240FFEF00094F11C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
