@@ -27,8 +27,8 @@ class OrderTableViewController: UITableViewController {
             //db.dropTableProduct()
         
         
-        dataTestDB()
-        deleteprods()
+        //dataTestDB()
+        //deleteprods()
         products = db.readProducts()
         //dataTestDB()
         //db.dropTableOrder()
