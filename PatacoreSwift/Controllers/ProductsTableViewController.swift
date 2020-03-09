@@ -53,11 +53,13 @@ class ProductsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:CustomCell = self.tableView.dequeueReusableCell(withIdentifier: "productCell") as! CustomCell
+        //let product = productsManager.getProduct(at: indexPath.row)
         let product = productsManager.getProduct(at: indexPath.row)
-        
         cell.lblName?.text = product.name
         cell.lblDescription?.text = product.description
         cell.lblPrice?.text = "$" + String(product.price)
+        //print("obtener un product")
+        //print(product.id)
         //cell.imgProduct?.image = product.img
         cell.imgProduct?.sd_setImage(with : URL(string: product.imag), placeholderImage: UIImage(named: "panadero.jpg"))
         
@@ -85,11 +87,11 @@ class ProductsTableViewController: UITableViewController {
             as? ProductViewController{
             productViewController.product = productsManager.getProduct(at: selectedIndexPath.row)
             productViewController.delegate = self
-        } else if let navController = segue.destination as? UINavigationController{
-            if let productViewController = navController.topViewController as? ProductViewController{
-                productViewController.delegate = self
-            }
-        }
+        } //else if let navController = segue.destination as? UINavigationController{
+           // if let productViewController = navController.topViewController as? ProductViewController{
+             //   productViewController.delegate = self
+           // }
+        //}
         
     }
     

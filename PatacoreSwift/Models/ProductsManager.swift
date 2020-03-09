@@ -25,11 +25,15 @@ class ProductsManger{
     }
     //para obtener un producto con su posicion
     func getProduct(at index: Int)->Product{
+        //print("obtener")        
+       // return db.readProduct(id: index)!
         return products[index]
     }
     //actualiza un producto de acuerdo a la poscion recibe posicion y el array
-    func updateProduct(at index: Int, with product : Product ){
-        
+    func updateProduct(at index: Int, with product: Product ){
+        print("actualizar")
+         print(product.id)
+        db.updateProduct(product: product)
         products[index] = product
                 
     }
@@ -50,8 +54,8 @@ class ProductsManger{
     func removeProduct(at index : Int){
         
         let removeProduc = products.remove(at: index)
-        print(removeProduc.id)
-        //db.deleteProductByID(id: 3)
+        //print(removeProduc.id)
+        db.deleteProductByID(id: removeProduc.id)
         //products.remove(at: index)
     }
     

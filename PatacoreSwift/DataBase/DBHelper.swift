@@ -128,7 +128,7 @@ class DBHelper
         return prods
     }
     
-    func readProduct (id: Int)->Product? {
+    func readProduct(id: Int)->Product? {
         let queryStatementString = "SELECT * FROM \(DBDec.TABLE_PRODUCT) WHERE \(DBDec.COLUMN_PRODUCT_ID) == \(id);"
         var queryStatement: OpaquePointer? = nil
         var prod : Product
@@ -171,7 +171,37 @@ class DBHelper
         sqlite3_finalize(deleteStatement)
     }
     
-    
+    func updateProduct(product: Product)
+    {
+        //let products = readProducts()
+        //for p in products
+        //{
+          //  if p.id == product.id
+            //{
+             //   return
+            //}
+        //}
+        
+        let updateStatementString = "UPDATE \(DBDec.TABLE_PRODUCT) SET  \(DBDec.COLUMN_PRODUCT_NAME) = ?, \(DBDec.COLUMN_PRODUCT_PRICE) = ?, \(DBDec.COLUMN_PRODUCT_DESCRIPTION) = ?, \(DBDec.COLUMN_PRODUCT_IMAGE)= ? WHERE \(DBDec.COLUMN_PRODUCT_ID) = ? ";
+        
+        var insertStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, updateStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(insertStatement, 1, (product.name as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 2, Int32(product.price))
+            sqlite3_bind_text(insertStatement, 3, (product.description as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, (product.imag as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 5, Int32(product.id))
+            
+            if sqlite3_step(insertStatement) == SQLITE_DONE {
+                print("Successfully update row.")
+            } else {
+                print("Could not insert row.")
+            }
+        } else {
+            print("update statement could not be prepared.")
+        }
+        sqlite3_finalize(insertStatement)
+    }
     
     
     
