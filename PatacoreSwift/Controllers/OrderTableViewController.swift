@@ -8,20 +8,62 @@
 
 import UIKit
 
-class OrderTableViewController: UITableViewController {
 
+class OrderTableViewController: UITableViewController {
+    
+    
+    @IBOutlet var tableViewOrder: UITableView!
+    let db = DBHelper()
+    var items = ["1", "2", "3"]
+    var products:[Product] = []
+    var orderManager = OrdersManager(table: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+            //db.dropTableProduct()
+        
+        
+        //dataTestDB()
+        //deleteprods()
+        products = db.readProducts()
+        //dataTestDB()
+        //db.dropTableOrder()
+
+    }
+    
+    func deleteprods(){
+        db.deleteProductByID(id: 1)
+        db.deleteProductByID(id: 2)
+
     }
 
+    @IBAction func confirmClicked(_ sender: UIBarButtonItem) {
+        let changes: String = self.orderManager.detectChanges(table: 1)
+        let alert = UIAlertController(title: "Aceptar Cambios?", message: changes, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+            self.orderManager.actOrders()
+        }))
+
+        self.present(alert, animated: true)
+    }
+    
+    
     // MARK: - Table view data source
-     var items = ["1", "2", "3"]
+    func dataTestDB(){
+        db.insertProduct(product: Product(name: "POLLO", price: 20000, description: "POLLO BIEN FRITO", imag: "hola"))
+        db.insertProduct(product: Product(name: "CARNE", price: 15000, description: "CARNE ASADA", imag: "hola"))
+        //db.insertProduct(product: Product(name: "ARROZ", price: 10000, description: "ARROZ BIEN MELO CARAMELO", imag: "hola"))
+    }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -30,63 +72,77 @@ class OrderTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return products.count
     }
+    
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderTableViewCell
-        cell.labelName.text = items[indexPath.row]
-        cell.labelDescription.text = "Descripcion de " + items[indexPath.row]
-        cell.textFieldAnnotation.text = "Anotaciones de " + items[indexPath.row]
+        items = []
+        let order: Order? =  orderManager.getOrder(idProd: products[indexPath.row].id)
+        if (order != nil){
+            cell.selectOrder.isOn = true
+            cell.textFieldAnnotation.text = order!.annotation
+            cell.textFieldNumber.text = String(order!.quantity)
+        }else{
+            cell.selectOrder.isOn = false
+            cell.textFieldAnnotation.text = ""
+            cell.textFieldNumber.text = "0"
+        }
         
+        
+        cell.labelName.text = products[indexPath.row].name
+        cell.labelDescription.text = products[indexPath.row].description
+        
+        cell.cellDelegate = self
+        cell.index = indexPath
         return cell
     }
 
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+extension OrderTableViewController: OrderTableView {
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    func onClickCheck(index: Int, state: Bool) {
+        print ("\(index) clicked is \(state)  \(products[index].id)")
+        
+        if (state){
+            let order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 1, date: "15/01/2019", hour: "2:03")
+            
+            orderManager.addOrder(order)
+            
+            
+        }else{
+            orderManager.removeOrder(id: products[index].id)
+        }
 
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func onClickPlus(index: Int, number: Int) {
+        print ("\(index) clicked plus")
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func onClickSustrain(index: Int, number: Int) {
+        print ("\(index) clicked sustrain")
     }
-    */
-
+    
+    func onQuantityTextChanged(index: Int, quantity: Int) {
+        print ("\(index) textChanged")
+        
+        if (orderManager.issetOrder(id: products[index].id)){
+            orderManager.updateOrderQuantity(product: products[index], quantity: quantity)
+        }else{
+            orderManager.addOrder(Order(product: products[index], table: 1, state: 1, annotation: "", quantity: quantity, date: "15/01/2019", hour: "2:03"))
+        }
+        
+        
+        
+    }
+    func onAnnotationEditEnd(index: Int, text: String) {
+        print ("\(index) textChanged to: \(text)")
+    }
+    
+    
+    
 }
