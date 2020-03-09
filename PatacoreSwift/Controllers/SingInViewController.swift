@@ -26,11 +26,11 @@ class SingInViewController: UIViewController {
    
     @IBAction func SingInBtn(_sender :  UIButton) {
         
-        /*
+        
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let tabBarViewController = storyboard.instantiateViewController (withIdentifier: "myTabBar") as! UITabBarController
+        let tabBarViewController = storyboard.instantiateViewController (withIdentifier: "TabBarViewController") as! TabBarViewController
         present(tabBarViewController, animated: true, completion: nil)
-          */
+          
     }
         /*
     // MARK: - Navigation
