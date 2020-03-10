@@ -1,16 +1,16 @@
 //
-//  TableCollectionViewController.swift
+//  TabCollectionViewController.swift
 //  PatacoreSwift
 //
-//  Created by Telematica on 11/02/20.
+//  Created by Telematica on 10/03/20.
 //  Copyright © 2020 Johana. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "tableCell"
 
-class TableCollectionViewController: UICollectionViewController {
+class TabCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class TableCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(TableCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -33,10 +33,10 @@ class TableCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    let items = ["1", "2", "3"]
+    var cellColor = true
     // MARK: UICollectionViewDataSource
-    var items = ["1", "2", "3"]
-    
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -49,13 +49,15 @@ class TableCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell", for: indexPath) as! TableCollectionViewCell
-        
-        cell.labelNumber.text = items[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TableCollectionViewCell
+        cell.backgroundColor = cellColor ? UIColor.red : UIColor.blue
+        cellColor = !cellColor
+        cell.labelNumber?.text = items[indexPath.row]
         // Configure the cell
-    
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

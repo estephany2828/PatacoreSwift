@@ -47,7 +47,6 @@ class ProductViewController: UIViewController {
     @IBAction func touchSave(_ sender: UIBarButtonItem) {
         let productToSave = Product(id: product?.id, name: nameTextField.text!, price: Int(priceTextField.text!)!, description: descriptionTextField.text!, imag: imageTextField.text!
                                     )
-        
         delegate?.saveProduct(productToSave)
         dismissMe()
         

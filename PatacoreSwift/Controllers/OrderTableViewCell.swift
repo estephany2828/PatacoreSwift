@@ -12,8 +12,8 @@ import UIKit
 protocol OrderTableView {
     func onClickPlus (index: Int, number: Int)
     func onClickSustrain (index: Int, number: Int)
-    func onClickCheck (index: Int, state: Bool)
-    func onAnnotationEditEnd (index: Int, text: String)
+    func onClickCheck (index: Int, state: Bool, annotation: String)
+    func onAnnotationTextChanged (index: Int, text: String)
     func onQuantityTextChanged (index: Int, quantity: Int)
 }
 
@@ -25,6 +25,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var textFieldAnnotation: UITextField!
     @IBOutlet weak var textFieldNumber: UITextField!
     
+    @IBOutlet weak var imageProduct: UIImageView!
     @IBOutlet weak var selectOrder: UISwitch!
     var cellDelegate: OrderTableView?
     var index: IndexPath?
@@ -38,6 +39,11 @@ class OrderTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    
+   
+    @IBAction func annotationTextChanged(_ sender: UITextField) {
+        cellDelegate?.onAnnotationTextChanged(index: (index?.row)!, text: (textFieldAnnotation?.text)!)
+    }
     @IBAction func numberTextChanged(_ sender: UITextField) {
         let quantity = readQuantity()
         if (quantity > 0){
@@ -53,7 +59,7 @@ class OrderTableViewCell: UITableViewCell {
         }else {
             textFieldNumber.text = "0"
         }
-        cellDelegate?.onClickCheck(index: (index?.row)!, state: state)
+        cellDelegate?.onClickCheck(index: (index?.row)!, state: state, annotation: (textFieldAnnotation?.text)!)
     }
     
     

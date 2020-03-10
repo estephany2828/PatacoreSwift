@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 class OrderTableViewController: UITableViewController {
     
@@ -37,6 +37,20 @@ class OrderTableViewController: UITableViewController {
         //dataTestDB()
         //db.dropTableOrder()
 
+    }
+    
+    @IBAction func btnReturn(_ sender: UIBarButtonItem) {
+        dismissMe()
+    }
+    
+    func dismissMe(){
+        if presentingViewController != nil {
+            dismiss(animated: true, completion: nil)
+            
+        }else{
+            navigationController!.popViewController(animated: true)
+        }
+        
     }
     
     func deleteprods(){
@@ -91,7 +105,7 @@ class OrderTableViewController: UITableViewController {
             cell.textFieldNumber.text = "0"
         }
         
-        
+        cell.imageProduct?.sd_setImage(with : URL(string: products[indexPath.row].imag), placeholderImage: UIImage(named: "panadero.jpg"))
         cell.labelName.text = products[indexPath.row].name
         cell.labelDescription.text = products[indexPath.row].description
         
@@ -104,15 +118,12 @@ class OrderTableViewController: UITableViewController {
 
 extension OrderTableViewController: OrderTableView {
 
-    func onClickCheck(index: Int, state: Bool) {
+    func onClickCheck(index: Int, state: Bool, annotation: String) {
         print ("\(index) clicked is \(state)  \(products[index].id)")
         
         if (state){
-            let order = Order(product: products[index], table: 1, state: 1, annotation: "Anotacion de \(products[index].name)", quantity: 1, date: "15/01/2019", hour: "2:03")
-            
+            let order = Order(product: products[index], table: 1, state: 1, annotation: annotation, quantity: 1, date: "15/01/2019", hour: "2:03")
             orderManager.addOrder(order)
-            
-            
         }else{
             orderManager.removeOrder(id: products[index].id)
         }
@@ -135,14 +146,14 @@ extension OrderTableViewController: OrderTableView {
         }else{
             orderManager.addOrder(Order(product: products[index], table: 1, state: 1, annotation: "", quantity: quantity, date: "15/01/2019", hour: "2:03"))
         }
-        
-        
-        
     }
-    func onAnnotationEditEnd(index: Int, text: String) {
+    
+    func onAnnotationTextChanged(index: Int, text: String) {
         print ("\(index) textChanged to: \(text)")
+        if (orderManager.issetOrder(id: products[index].id)){
+            orderManager.updateOrderAnnotation(product: products[index], annotation: text)
+        }
+        
     }
-    
-    
     
 }

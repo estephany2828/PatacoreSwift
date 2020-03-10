@@ -340,7 +340,7 @@ class DBHelper
     }
     
     func updateOrderAnnotation (order: Order) {
-        let queryStatementString = "UPDATE \(DBDec.TABLE_ORDER) SET \(DBDec.COLUMN_ORDER_ANNOTATION) = \(order.annotation) WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(order.table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(order.state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(order.id));"
+        let queryStatementString = "UPDATE \(DBDec.TABLE_ORDER) SET \(DBDec.COLUMN_ORDER_ANNOTATION) = \'\(order.annotation)\' WHERE (\(DBDec.COLUMN_ORDER_TABLE) = \(order.table)) AND (\(DBDec.COLUMN_ORDER_STATE) = \(order.state)) AND (\(DBDec.COLUMN_ORDER_PRODUCT) = \(order.id));"
         var updateStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, queryStatementString, -1, &updateStatement, nil) == SQLITE_OK {
             if sqlite3_step(updateStatement) == SQLITE_DONE {

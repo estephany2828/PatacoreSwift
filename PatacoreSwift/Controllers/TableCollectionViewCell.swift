@@ -8,7 +8,13 @@
 
 import UIKit
 
-class TableCollectionViewCell: UICollectionViewCell {
+class TableCollectionViewCell: UICollectionViewCell{
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init has not be implemented")
+    }
     @IBOutlet weak var labelNumber: UILabel!
 }
