@@ -449,7 +449,21 @@
                             <outlet property="delegate" destination="3yt-0T-Soq" id="8uI-hu-Lmb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pedidos" id="GVD-B6-S0f"/>
+                    <navigationItem key="navigationItem" title="Pedidos" id="GVD-B6-S0f">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="2SL-9Y-2cA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iH4-Nq-chm">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <connections>
+                                <action selector="onClickSelectTable:" destination="3yt-0T-Soq" id="t0C-kS-TZq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnSelectTables" destination="2SL-9Y-2cA" id="K8m-sJ-uUE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxV-F4-P6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
