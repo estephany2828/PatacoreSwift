@@ -75,8 +75,8 @@ class ProductsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete {
             
-            productsManager.removeProduct(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            //productsManager.removeProduct(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
