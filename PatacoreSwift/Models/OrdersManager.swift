@@ -14,6 +14,7 @@ class OrdersManager {
     var db:DBHelper = DBHelper ()
     private var orders: [Order]
     
+    
     init (table: Int){
         self.table = table
         orders = db.readOrdersByState_Table(table: self.table, state: 1)
@@ -22,14 +23,16 @@ class OrdersManager {
     var orderCount: Int{
           return orders.count
     }
+
     
     func getConfirmedOrders ()->[Order]{
         return db.readOrdersByState_Table(table: self.table, state: 2)
     }
-    
     func getOrders()->[Order]{
         orders = db.readOrdersByState_Table(table: self.table, state: 2)
         return orders
+    
+      
     }
 
     func getOrder(idProd: Int)->Order?{
@@ -133,6 +136,7 @@ class OrdersManager {
         }
         }
     }
+    
     
     
     

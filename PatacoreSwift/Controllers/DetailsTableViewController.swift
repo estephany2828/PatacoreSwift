@@ -15,9 +15,13 @@ class DetailsTableViewController: UITableViewController {
    
     
    //@IBOutlet weak var selectedCellLabel: UILabel!
-   var menuView: BTNavigationDropdownMenu!
+    //variables 
+    var menuView: BTNavigationDropdownMenu!
     var productsManager: ProductsManger = ProductsManger()
+    var ordeManag: OrdersManager = OrdersManager(table: 1)
+    
     var orderManager = OrdersManager(table: 1)
+    
     @IBOutlet weak var selectBtnMesa: UILabel!
     
     override func viewDidLoad() {
@@ -29,8 +33,6 @@ class DetailsTableViewController: UITableViewController {
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
-            // "Old" version
-            // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Dropdown Menu", items: items)
             menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.index(2), items: items)
 
             // Another way to initialize:
@@ -40,68 +42,79 @@ class DetailsTableViewController: UITableViewController {
             menuView.cellSelectionColor = UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
             menuView.shouldKeepSelectedCellColor = true
             menuView.cellTextLabelColor = UIColor.white
-            menuView.cellTextLabelFont = UIFont(name: "Mesas", size: 17)
+            menuView.cellTextLabelFont = UIFont(name: "Mesa", size: 17)
             menuView.cellTextLabelAlignment = .left // .Center // .Right // .Left
             menuView.arrowPadding = 15
             menuView.animationDuration = 0.5
             menuView.maskBackgroundColor = UIColor.black
             menuView.maskBackgroundOpacity = 0.3
+        
             menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> Void in
                 print("Did select item at index: \(indexPath)")
                 self.selectBtnMesa.text = items[indexPath]
+              //  var pedidoMesa = self.ordeManag.getOrde(at: <#T##Int#>, tableP: <#T##Int#>, stateP: <#T##Int#>)
+                let nromesa = indexPath + 1
+                self.orderManager = OrdersManager(table: nromesa)
+              
                 //aqui colocar lo de desplegar
-                self.orderManager = OrdersManager(table: indexPath+1)
+                //self.orderManager = OrdersManager(table: indexPath+1)
                 
             }
             
             self.navigationItem.titleView = menuView
         
-        
-
-      
+                    
     }
-   
-   
+    
+
     //btn para seleccionar las mesas
     
-  
+
     
-    @IBAction func onClickSelectTable(_ sender: UIBarButtonItem) {
-      
-    }
-  
-  
-    // MARK: - Table view data sourcer
+    
+    
+        
+          // MARK: - Table view data sourcer
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+              // #warning Incomplete implementation, return the number of sections
+              return 1
+          }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return orderManager.getConfirmedOrders().count
-    }
+              // #warning Incomplete implementation, return the number of rows
+        //return productsManager.productCount
+            return orderManager.orderCount
+          }
 
-    
+          
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detCell", for: indexPath)
-        //desde aqui modificas el cell
+              let cell = tableView.dequeueReusableCell(withIdentifier: "detCell", for: indexPath)
+              //desde aqui modificas el cell
 
-        let detailsOrder = orderManager.getConfirmedOrders()
-        cell.textLabel?.text = detailsOrder[indexPath.row].name
-        cell.detailTextLabel?.text = detailsOrder[indexPath.row].description
-        cell.imageView?.sd_setImage(with : URL(string: detailsOrder[indexPath.row].imag), placeholderImage: UIImage(named: "panadero.jpg"))
+        //let detailsOrder  = productsManager.getProduct(at: indexPath.row)
+        //cell.textLabel?.text = detailsOrder.name
+        //cell.detailTextLabel?.text = detailsOrder.description
+        //cell.imageView?.sd_setImage(with : URL(string: detailsOrder.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+              let detailsOrder = orderManager.getConfirmedOrders()
+              cell.textLabel?.text = detailsOrder[indexPath.row].name
+              cell.detailTextLabel?.text = detailsOrder[indexPath.row].description
+              cell.detailTextLabel?.text = detailsOrder[indexPath.row].description
+              cell.imageView?.sd_setImage(with : URL(string: detailsOrder[indexPath.row].imag), placeholderImage: UIImage(named: "panadero.jpg"))
+              
+              return cell
+          }
         
-        return cell
-    }
+    
+    
+    
    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let selectedIndexPath = tableView.indexPathForSelectedRow,
         let detailsViewController = segue.destination
             as? DetailsViewController{
             detailsViewController.detailsOrder
-                = orderManager.getConfirmedOrders()[selectedIndexPath.row]
+                = ordeManag.getConfirmedOrders()[selectedIndexPath.row]
             ////detailsViewController.delegate = self
         } else if let navController = segue.destination as? UINavigationController{
             if let detailsViewController = navController.topViewController as? DetailsViewController{
@@ -109,7 +122,7 @@ class DetailsTableViewController: UITableViewController {
             }
         }
         
-    }
+}
     
     
 
