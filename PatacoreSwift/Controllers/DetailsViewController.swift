@@ -10,18 +10,26 @@ import UIKit
 import SDWebImage
 
 
+class CellClasss: UITableView{
+    
+}
+
 class DetailsViewController: UIViewController {
     var delegate: DetailsViewControllerDelegate?
     
     var detailsproduct: Product?
+   
     
+   
     
-
     @IBOutlet weak var imgView: UIImageView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         if let detailsOrder = detailsproduct{
            //nameText.text = detailsproduct?.name
@@ -37,13 +45,19 @@ class DetailsViewController: UIViewController {
             
             
         }
+        //let btn = UIButton(type: .custom)
+       
+        
+        
+        
+       
+        
     }
-    
 
     
-
 }
 
 protocol DetailsViewControllerDelegate{
     func saveProduct(_ product : Product)
 }
+
