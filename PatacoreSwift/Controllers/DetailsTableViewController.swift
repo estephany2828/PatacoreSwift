@@ -8,73 +8,68 @@
 
 import UIKit
 import SDWebImage
-
-class CellClass: UIViewController{
-    
-}
-
+import BTNavigationDropdownMenu
 class DetailsTableViewController: UITableViewController {
     //recursos para button down
     @IBOutlet weak var btnSelectTables: UIBarButtonItem!
-    let transparentView = UIView()
-    let tableViewTable = UITableView()
-    var selectButton = UIBarButtonItem()
-    var dataSource = [String]()
+   
     
-    
-    
-    
+   //@IBOutlet weak var selectedCellLabel: UILabel!
+   var menuView: BTNavigationDropdownMenu!
     var productsManager: ProductsManger = ProductsManger()
     
+    @IBOutlet weak var selectBtnMesa: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableViewTable.delegate = self
-        //tableViewTable.dataSource = self
-        //tableViewTable.register(CellClass.self, forCellReuseIdentifier: "cell")
+        //aqui se coloca los valores de las mesas 
+        let items = ["Mesa 1", "Mesa 2", "Mesa 3", "Mesa 4", "Mesa 5"]
+            self.selectBtnMesa.text = items.first
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+            // "Old" version
+            // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: "Dropdown Menu", items: items)
+            menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.index(2), items: items)
+
+            // Another way to initialize:
+            // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
+            menuView.cellHeight = 50
+            menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
+            menuView.cellSelectionColor = UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
+            menuView.shouldKeepSelectedCellColor = true
+            menuView.cellTextLabelColor = UIColor.white
+            menuView.cellTextLabelFont = UIFont(name: "Mesas", size: 17)
+            menuView.cellTextLabelAlignment = .left // .Center // .Right // .Left
+            menuView.arrowPadding = 15
+            menuView.animationDuration = 0.5
+            menuView.maskBackgroundColor = UIColor.black
+            menuView.maskBackgroundOpacity = 0.3
+            menuView.didSelectItemAtIndexHandler = {(indexPath: Int) -> Void in
+                print("Did select item at index: \(indexPath)")
+                self.selectBtnMesa.text = items[indexPath]
+                //aqui colocar lo de desplegar
+                
+            }
+            
+            self.navigationItem.titleView = menuView
+        
+        
 
       
     }
    
-    func addTransparentView(frames: CGRect ){
-        let windows = UIApplication.shared.keyWindow
-        transparentView.frame = windows?.frame ?? self.view.frame
-        self.view.addSubview(transparentView)
-        
-        tableViewTable.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        self.view.addSubview(tableViewTable)
-        tableViewTable.layer.cornerRadius = 5
-        
-        
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        
-        tableViewTable.reloadData()
-        
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-        transparentView.addGestureRecognizer(tapgesture)
-        
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0,  initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.tableViewTable.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: CGFloat(self.dataSource.count*50))
-        }, completion: nil)
-        
-    }
-    @objc func removeTransparentView(){
-        let frames = selectButton.accessibilityFrame
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0,  initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0
-            self.tableViewTable.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        }, completion: nil)
-    }
+   
     //btn para seleccionar las mesas
     
   
     
-    @IBAction func onClickSelectTable(_ sender: Any) {
-       // dataSource = ["1", "2", "3"]
-         //      selectButton = btnSelectTables
-           //    addTransparentView(frames: btnSelectTables.accessibilityFrame)
+    @IBAction func onClickSelectTable(_ sender: UIBarButtonItem) {
+      
     }
+  
+  
     // MARK: - Table view data sourcer
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,6 +85,7 @@ class DetailsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detCell", for: indexPath)
+        //desde aqui modificas el cell
 
         let detailsOrder = productsManager.getProduct(at: indexPath.row)
         cell.textLabel?.text = detailsOrder.name

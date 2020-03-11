@@ -33,8 +33,8 @@
 		87210977E9856595623DA250 /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */; };
 		FB326761240F1F800095F1B9 /* OrdersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB326760240F1F800095F1B9 /* OrdersManager.swift */; };
 		FB326763240F369B0095F1B9 /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */; };
-		FBF0F33C23F373C60014ED7E /* TableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F33B23F373C60014ED7E /* TableCollectionViewController.swift */; };
-		FBF0F33E23F375C00014ED7E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F33D23F375C00014ED7E /* TableViewController.swift */; };
+		FB3CAEB324182A7A0072DFD0 /* TabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3CAEB224182A7A0072DFD0 /* TabCollectionViewController.swift */; };
+		FB3CAEB724183DFB0072DFD0 /* TabTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3CAEB624183DFB0072DFD0 /* TabTableViewController.swift */; };
 		FBF0F34023F377030014ED7E /* TableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F33F23F377030014ED7E /* TableCollectionViewCell.swift */; };
 		FBF0F34223F379F20014ED7E /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F34123F379F20014ED7E /* OrderTableViewController.swift */; };
 		FBF0F34423F37A0A0014ED7E /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0F34323F37A0A0014ED7E /* OrderTableViewCell.swift */; };
@@ -96,8 +96,8 @@
 		CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB326760240F1F800095F1B9 /* OrdersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersManager.swift; sourceTree = "<group>"; };
 		FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderViewController.swift; sourceTree = "<group>"; };
-		FBF0F33B23F373C60014ED7E /* TableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewController.swift; sourceTree = "<group>"; };
-		FBF0F33D23F375C00014ED7E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FB3CAEB224182A7A0072DFD0 /* TabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewController.swift; sourceTree = "<group>"; };
+		FB3CAEB624183DFB0072DFD0 /* TabTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTableViewController.swift; sourceTree = "<group>"; };
 		FBF0F33F23F377030014ED7E /* TableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBF0F34123F379F20014ED7E /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		FBF0F34323F37A0A0014ED7E /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
@@ -209,13 +209,13 @@
 				FBF0F34323F37A0A0014ED7E /* OrderTableViewCell.swift */,
 				FBF0F33F23F377030014ED7E /* TableCollectionViewCell.swift */,
 				048BE20E23F08AE10010BB37 /* TabBarViewController.swift */,
-				FBF0F33D23F375C00014ED7E /* TableViewController.swift */,
-				FBF0F33B23F373C60014ED7E /* TableCollectionViewController.swift */,
 				04CEC13D23F10180000D0D8D /* ProductsTableViewController.swift */,
 				04E799B023F262A600EFF3DE /* ProductViewController.swift */,
 				04E799B223F28A0E00EFF3DE /* DetailsTableViewController.swift */,
 				04D5618B240FFEF00094F11C /* DetailsViewController.swift */,
 				FB326762240F369B0095F1B9 /* ConfirmOrderViewController.swift */,
+				FB3CAEB224182A7A0072DFD0 /* TabCollectionViewController.swift */,
+				FB3CAEB624183DFB0072DFD0 /* TabTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -509,23 +509,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBF0F33C23F373C60014ED7E /* TableCollectionViewController.swift in Sources */,
 				0493A56823EF6DB800C82E62 /* SingInViewController.swift in Sources */,
 				04CEC13E23F10180000D0D8D /* ProductsTableViewController.swift in Sources */,
 				0413732B23ED2E46007CED13 /* ViewController.swift in Sources */,
+				FB3CAEB324182A7A0072DFD0 /* TabCollectionViewController.swift in Sources */,
 				FB326763240F369B0095F1B9 /* ConfirmOrderViewController.swift in Sources */,
 				0413732723ED2E46007CED13 /* AppDelegate.swift in Sources */,
 				FB326761240F1F800095F1B9 /* OrdersManager.swift in Sources */,
 				048BE20F23F08AE10010BB37 /* TabBarViewController.swift in Sources */,
 				FBF0F34423F37A0A0014ED7E /* OrderTableViewCell.swift in Sources */,
 				0413732923ED2E46007CED13 /* SceneDelegate.swift in Sources */,
-				FBF0F33E23F375C00014ED7E /* TableViewController.swift in Sources */,
 				FBF0F34223F379F20014ED7E /* OrderTableViewController.swift in Sources */,
 				FBF0F34023F377030014ED7E /* TableCollectionViewCell.swift in Sources */,
 				04E799B323F28A0E00EFF3DE /* DetailsTableViewController.swift in Sources */,
 				04EEADC5240D538000B6D686 /* Order.swift in Sources */,
 				04E799B123F262A600EFF3DE /* ProductViewController.swift in Sources */,
 				04E799AD23F2198300EFF3DE /* Product.swift in Sources */,
+				FB3CAEB724183DFB0072DFD0 /* TabTableViewController.swift in Sources */,
 				04CAE28A24088F160057AC24 /* DBDeclarations.swift in Sources */,
 				04E799AF23F22F7E00EFF3DE /* ProductsManager.swift in Sources */,
 				04CAE28824088EDF0057AC24 /* DBHelper.swift in Sources */,

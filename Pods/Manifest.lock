@@ -1,22 +1,30 @@
 PODS:
+  - BTNavigationDropdownMenu (0.5)
+  - LMDropdownViewSwift (1.0.0)
   - RevealingSplashView (0.6.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
 
 DEPENDENCIES:
+  - BTNavigationDropdownMenu
+  - LMDropdownViewSwift
   - RevealingSplashView
   - SDWebImage
 
 SPEC REPOS:
   trunk:
+    - BTNavigationDropdownMenu
+    - LMDropdownViewSwift
     - RevealingSplashView
     - SDWebImage
 
 SPEC CHECKSUMS:
+  BTNavigationDropdownMenu: ba3a26fdb6a56c4721c31df8a0875106c259663a
+  LMDropdownViewSwift: 9d3606b8ae5949b372104d7a34521b514a0ec75e
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
 
-PODFILE CHECKSUM: 5d185e7ec94d3c78cf8953c6e0e38669f3abf0c8
+PODFILE CHECKSUM: 1da771cde7706bd7936cc43d7d5b2fe35730d077
 
 COCOAPODS: 1.8.4

@@ -19,8 +19,14 @@ class OrdersManager {
         orders = db.readOrdersByState_Table(table: self.table, state: 1)
     }
     
+    
+    
     var orderCount: Int{
           return orders.count
+    }
+    
+    func getConfirmedOrders ()->[Order]{
+        return db.readOrdersByState_Table(table: self.table, state: 2)
     }
 
     func getOrder(idProd: Int)->Order?{
@@ -39,11 +45,7 @@ class OrdersManager {
     func updateOrderAnnotation (product: Product, annotation: String){
         db.updateOrderAnnotation(order: Order(product: product, table: self.table, state: 1, annotation: annotation, quantity: 1, date: "", hour: ""))
     }
-    
-  
-    private func loadOrders()->[Order]{
-        return db.readOrders()
-    }
+
     
     func issetOrder (id : Int) ->Bool{
         orders = db.readOrdersByState_Table(table: self.table, state: 1)
