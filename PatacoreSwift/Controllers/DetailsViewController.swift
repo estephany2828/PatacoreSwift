@@ -17,7 +17,7 @@ class CellClasss: UITableView{
 class DetailsViewController: UIViewController {
     var delegate: DetailsViewControllerDelegate?
     
-    var detailsproduct: Product?
+    var detailsOrder: Order?
    
     
    
@@ -31,14 +31,14 @@ class DetailsViewController: UIViewController {
         
         
 
-        if let detailsOrder = detailsproduct{
+        if let detailsOrder = detailsOrder{
            //nameText.text = detailsproduct?.name
             
             //nroPlatosText.text = String(detailsproduct!.price)
             
             //descriptionText.text = detailsproduct?.description
             
-            imgView.sd_setImage(with : URL(string: detailsproduct!.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+            imgView.sd_setImage(with : URL(string: detailsOrder.imag), placeholderImage: UIImage(named: "panadero.jpg"))
             
             
             

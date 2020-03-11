@@ -17,7 +17,7 @@ class DetailsTableViewController: UITableViewController {
    //@IBOutlet weak var selectedCellLabel: UILabel!
    var menuView: BTNavigationDropdownMenu!
     var productsManager: ProductsManger = ProductsManger()
-    
+    var orderManager = OrdersManager(table: 1)
     @IBOutlet weak var selectBtnMesa: UILabel!
     
     override func viewDidLoad() {
@@ -50,6 +50,7 @@ class DetailsTableViewController: UITableViewController {
                 print("Did select item at index: \(indexPath)")
                 self.selectBtnMesa.text = items[indexPath]
                 //aqui colocar lo de desplegar
+                self.orderManager = OrdersManager(table: indexPath+1)
                 
             }
             
@@ -79,7 +80,7 @@ class DetailsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return productsManager.productCount
+        return orderManager.getConfirmedOrders().count
     }
 
     
@@ -87,10 +88,10 @@ class DetailsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detCell", for: indexPath)
         //desde aqui modificas el cell
 
-        let detailsOrder = productsManager.getProduct(at: indexPath.row)
-        cell.textLabel?.text = detailsOrder.name
-        cell.detailTextLabel?.text = detailsOrder.description
-        cell.imageView?.sd_setImage(with : URL(string: detailsOrder.imag), placeholderImage: UIImage(named: "panadero.jpg"))
+        let detailsOrder = orderManager.getConfirmedOrders()
+        cell.textLabel?.text = detailsOrder[indexPath.row].name
+        cell.detailTextLabel?.text = detailsOrder[indexPath.row].description
+        cell.imageView?.sd_setImage(with : URL(string: detailsOrder[indexPath.row].imag), placeholderImage: UIImage(named: "panadero.jpg"))
         
         return cell
     }
@@ -99,8 +100,8 @@ class DetailsTableViewController: UITableViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow,
         let detailsViewController = segue.destination
             as? DetailsViewController{
-            detailsViewController.detailsproduct
-                = productsManager.getProduct(at: selectedIndexPath.row)
+            detailsViewController.detailsOrder
+                = orderManager.getConfirmedOrders()[selectedIndexPath.row]
             ////detailsViewController.delegate = self
         } else if let navController = segue.destination as? UINavigationController{
             if let detailsViewController = navController.topViewController as? DetailsViewController{
