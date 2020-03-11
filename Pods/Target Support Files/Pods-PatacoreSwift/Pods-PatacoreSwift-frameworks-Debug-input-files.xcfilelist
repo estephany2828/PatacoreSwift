@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift-frameworks.sh
+${BUILT_PRODUCTS_DIR}/BTNavigationDropdownMenu/BTNavigationDropdownMenu.framework
+${BUILT_PRODUCTS_DIR}/LMDropdownViewSwift/LMDropdownViewSwift.framework
 ${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

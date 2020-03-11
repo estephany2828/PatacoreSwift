@@ -1,3 +1,4 @@
+
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
@@ -6,6 +7,8 @@ target 'PatacoreSwift' do
   use_frameworks!
   pod 'RevealingSplashView'
   pod 'SDWebImage'
+  pod 'BTNavigationDropdownMenu'
+  pod 'LMDropdownViewSwift'	
 
   # Pods for PatacoreSwift
 
