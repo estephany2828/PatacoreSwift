@@ -24,7 +24,11 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var imgView: UIImageView!
     
+    @IBOutlet weak var nombrePlato: UILabel!
     
+    @IBOutlet weak var numPlatos: UILabel!
+    
+    @IBOutlet weak var anotaciones: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +36,11 @@ class DetailsViewController: UIViewController {
         
 
         if let detailsOrder = detailsOrder{
-           //nameText.text = detailsproduct?.name
+            nombrePlato.text = detailsOrder.name
             
-            //nroPlatosText.text = String(detailsproduct!.price)
+            numPlatos.text = String(detailsOrder.quantity)
             
-            //descriptionText.text = detailsproduct?.description
+            anotaciones.text = detailsOrder.annotation
             
             imgView.sd_setImage(with : URL(string: detailsOrder.imag), placeholderImage: UIImage(named: "panadero.jpg"))
             
