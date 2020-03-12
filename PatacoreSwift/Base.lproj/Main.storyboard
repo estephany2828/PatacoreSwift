@@ -5,60 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mesas-->
-        <scene sceneID="RbO-Lv-157">
-            <objects>
-                <collectionViewController id="zIq-Tg-v8v" customClass="TabCollectionViewController" customModule="PatacoreSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qRq-nx-qNJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ITl-ej-0y7">
-                            <size key="itemSize" width="165" height="133"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="tableCell" id="RMv-F0-Kt0" customClass="TableCollectionViewCell" customModule="PatacoreSwift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="165" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1CF-Pp-Cy8">
-                                    <rect key="frame" x="0.0" y="0.0" width="165" height="133"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-B0-gLl">
-                                            <rect key="frame" x="8" y="8" width="68" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="165" height="133"/>
-                                <connections>
-                                    <outlet property="labelNumber" destination="cMR-B0-gLl" id="dFM-ZA-Krg"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="zIq-Tg-v8v" id="pOh-j0-IUV"/>
-                            <outlet property="delegate" destination="zIq-Tg-v8v" id="hze-P6-Zyc"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Mesas" id="l9o-hB-n7F">
-                        <color key="badgeColor" name="PrimaryLight"/>
-                    </tabBarItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jl4-OR-2tf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2819" y="-1258"/>
-        </scene>
         <!--Order Table View Controller-->
         <scene sceneID="Kgg-7I-9uZ">
             <objects>
@@ -690,7 +639,7 @@
                             <outlet property="delegate" destination="ZNe-7P-7rv" id="CGW-Gj-LXz"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Mesas" id="EFc-lq-wVQ"/>
+                    <tabBarItem key="tabBarItem" title="Mesas" image="square.grid.2x2.fill" catalog="system" id="EFc-lq-wVQ"/>
                     <navigationItem key="navigationItem" id="CC9-Cd-PBJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btx-ZS-D4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -701,7 +650,7 @@
         <scene sceneID="K3k-fp-a1L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uei-7N-aH1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Productos" id="M1x-oq-SKI">
+                    <tabBarItem key="tabBarItem" title="Productos" image="list.dash" catalog="system" id="M1x-oq-SKI">
                         <color key="badgeColor" name="PrimaryLight"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -749,7 +698,7 @@
         <scene sceneID="RJ2-UT-fmm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RcT-UY-QGl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pedidos" id="Rxt-Is-G3W">
+                    <tabBarItem key="tabBarItem" title="Pedidos" image="checkmark.seal.fill" catalog="system" id="Rxt-Is-G3W">
                         <color key="badgeColor" name="PrimaryLight"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -774,9 +723,12 @@
     </scenes>
     <resources>
         <image name="LogoPatacoreInvY" width="240" height="240"/>
+        <image name="checkmark.seal.fill" catalog="system" width="64" height="60"/>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
         <image name="minus.circle" catalog="system" width="64" height="60"/>
         <image name="panadero" width="170.66667175292969" height="170.66667175292969"/>
         <image name="plus.circle" catalog="system" width="64" height="60"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
         <namedColor name="Accent">
             <color red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
