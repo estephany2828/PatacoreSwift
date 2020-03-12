@@ -30,7 +30,7 @@ class DetailsTableViewController: UITableViewController {
         let items = ["Mesa 1", "Mesa 2", "Mesa 3", "Mesa 4", "Mesa 5"]
             self.selectBtnMesa.text = items.first
             self.navigationController?.navigationBar.isTranslucent = false
-            self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green:180/255.0, blue:220/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "Secondary")
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
             menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.index(2), items: items)
@@ -39,7 +39,7 @@ class DetailsTableViewController: UITableViewController {
             // menuView = BTNavigationDropdownMenu(navigationController: self.navigationController, containerView: self.navigationController!.view, title: BTTitle.title("Dropdown Menu"), items: items)
             menuView.cellHeight = 50
             menuView.cellBackgroundColor = self.navigationController?.navigationBar.barTintColor
-            menuView.cellSelectionColor = UIColor(red: 0.0/255.0, green:160.0/255.0, blue:195.0/255.0, alpha: 1.0)
+        menuView.cellSelectionColor = UIColor(named: "SecondaryLight")
             menuView.shouldKeepSelectedCellColor = true
             menuView.cellTextLabelColor = UIColor.white
             menuView.cellTextLabelFont = UIFont(name: "Mesa", size: 17)
