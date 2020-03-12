@@ -9,6 +9,7 @@ target 'PatacoreSwift' do
   pod 'SDWebImage'
   pod 'BTNavigationDropdownMenu'
   pod 'LMDropdownViewSwift'	
+  pod 'Firebase/Auth'
 
   # Pods for PatacoreSwift
 

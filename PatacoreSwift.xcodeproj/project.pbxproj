@@ -29,6 +29,7 @@
 		04EEADC7240D7FA500B6D686 /* Patacore.db in Resources */ = {isa = PBXBuildFile; fileRef = 04EEADC6240D7FA400B6D686 /* Patacore.db */; };
 		229A2352A4E4FFE640FCEEDA /* Pods_PatacoreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */; };
 		6E59423F53718337F27E0C13 /* Pods_PatacoreSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3D3D7087326DB5839AD1FE /* Pods_PatacoreSwiftTests.framework */; };
+		7977BF78241AA373003FF061 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7977BF77241AA373003FF061 /* GoogleService-Info.plist */; };
 		798334E123F352D600F50DD8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798334E023F352D600F50DD8 /* Colors.xcassets */; };
 		87210977E9856595623DA250 /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280E859D7C5A5AAB866E8C5C /* Pods_PatacoreSwift_PatacoreSwiftUITests.framework */; };
 		FB326761240F1F800095F1B9 /* OrdersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB326760240F1F800095F1B9 /* OrdersManager.swift */; };
@@ -89,6 +90,7 @@
 		466D0EB12B68A2E7A3FBEFEA /* Pods_PatacoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PatacoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA2C99561E74F940A1A4CCB /* Pods-PatacoreSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-PatacoreSwiftTests/Pods-PatacoreSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A5D5E5CD1F913B6A062AD5 /* Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift-PatacoreSwiftUITests/Pods-PatacoreSwift-PatacoreSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7977BF77241AA373003FF061 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		798334E023F352D600F50DD8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		AC14F7E59C2E6069BB1FEBD9 /* Pods-PatacoreSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwift.debug.xcconfig"; path = "Target Support Files/Pods-PatacoreSwift/Pods-PatacoreSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		AC5768D82BF49921D1B1389A /* Pods-PatacoreSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatacoreSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-PatacoreSwiftTests/Pods-PatacoreSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				0413732F23ED2E48007CED13 /* Assets.xcassets */,
 				0413733123ED2E48007CED13 /* LaunchScreen.storyboard */,
 				0413733423ED2E48007CED13 /* Info.plist */,
+				7977BF77241AA373003FF061 /* GoogleService-Info.plist */,
 				798334E023F352D600F50DD8 /* Colors.xcassets */,
 			);
 			path = PatacoreSwift;
@@ -382,6 +385,7 @@
 				0413733023ED2E48007CED13 /* Assets.xcassets in Resources */,
 				0413732E23ED2E46007CED13 /* Main.storyboard in Resources */,
 				04EEADC7240D7FA500B6D686 /* Patacore.db in Resources */,
+				7977BF78241AA373003FF061 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

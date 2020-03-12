@@ -206,7 +206,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contrasena" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDg-jC-WWi">
                                 <rect key="frame" x="103" y="486" width="208" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoPatacoreInvY" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-gs-23y">
                                 <rect key="frame" x="32" y="60" width="350" height="360"/>
@@ -217,11 +217,14 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qF-5O-tbN">
                                 <rect key="frame" x="144" y="536" width="127" height="30"/>
                                 <color key="backgroundColor" name="PrimaryLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="xwo-2e-JaK"/>
+                                </constraints>
                                 <state key="normal" title="Iniciar Sesion">
                                     <color key="titleColor" name="Secondary"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XNC-hH-SZc" kind="presentation" modalPresentationStyle="fullScreen" id="YQL-8K-l3g"/>
+                                    <action selector="SingInBtnWith_sender:" destination="ToM-lZ-gCj" eventType="touchUpInside" id="RM2-ZD-Zzq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -571,11 +574,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Agregar Producto" id="ZTS-Lh-chB">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="hFZ-Fb-4l6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="touchCancel:" destination="YKj-vb-oZo" id="cn7-3U-I6D"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Guardar" id="iOT-og-fWa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="touchSave:" destination="YKj-vb-oZo" id="V3G-me-OV0"/>
                             </connections>
