@@ -39,7 +39,7 @@ class ProductsManger{
     }
     //despleja los productos que estan en un array o bd
     private func loadProducts()->[Product]{
-        return db.readProducts() ?? []
+        return db.readProducts() 
     }
     
     //agrega productos y loscoloca al final
@@ -84,3 +84,15 @@ class ProductsManger{
     }
     
 }
+
+/*
+ func getOrders(tableP: Int, stateP: Int)->[Order]{
+       orders = db.readOrdersByState_Table(table: tableP, state: stateP)
+       return orders
+   }
+   func getOrde(at index: Int)->Order{
+          //orders = db.readOrdersByState_Table(table: tableP, state: stateP)
+       //let ord:[Order] = db.readOrdersByState_Table(table: tableP, state: stateP)
+       return orde[index]
+      }
+ */

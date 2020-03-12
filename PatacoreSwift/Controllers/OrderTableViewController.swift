@@ -11,7 +11,7 @@ import SDWebImage
 
 class OrderTableViewController: UITableViewController {
     
-    
+    var table:Int?
     @IBOutlet var tableViewOrder: UITableView!
     let db = DBHelper()
     var items = ["1", "2", "3"]
@@ -34,6 +34,15 @@ class OrderTableViewController: UITableViewController {
         //dataTestDB()
         //deleteprods()
         products = db.readProducts()
+        
+        if table != nil{
+            print("TABLE: \(table!)")
+            orderManager = OrdersManager(table: table!)
+        }else{
+            print("TABLE: NOT DEFINED")
+            
+        }
+        
         //dataTestDB()
         //db.dropTableOrder()
 
@@ -60,7 +69,7 @@ class OrderTableViewController: UITableViewController {
     }
 
     @IBAction func confirmClicked(_ sender: UIBarButtonItem) {
-        let changes: String = self.orderManager.detectChanges(table: 1)
+        let changes: String = self.orderManager.detectChanges(table: table!)
         let alert = UIAlertController(title: "Aceptar Cambios?", message: changes, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
@@ -113,6 +122,8 @@ class OrderTableViewController: UITableViewController {
         cell.index = indexPath
         return cell
     }
+    
+    
 
 }
 
@@ -122,7 +133,7 @@ extension OrderTableViewController: OrderTableView {
         print ("\(index) clicked is \(state)  \(products[index].id)")
         
         if (state){
-            let order = Order(product: products[index], table: 1, state: 1, annotation: annotation, quantity: 1, date: "15/01/2019", hour: "2:03")
+            let order = Order(product: products[index], table: table!, state: 1, annotation: annotation, quantity: 1, date: "15/01/2019", hour: "2:03")
             orderManager.addOrder(order)
         }else{
             orderManager.removeOrder(id: products[index].id)
@@ -144,7 +155,7 @@ extension OrderTableViewController: OrderTableView {
         if (orderManager.issetOrder(id: products[index].id)){
             orderManager.updateOrderQuantity(product: products[index], quantity: quantity)
         }else{
-            orderManager.addOrder(Order(product: products[index], table: 1, state: 1, annotation: "", quantity: quantity, date: "15/01/2019", hour: "2:03"))
+            orderManager.addOrder(Order(product: products[index], table: table!, state: 1, annotation: "", quantity: quantity, date: "15/01/2019", hour: "2:03"))
         }
     }
     
